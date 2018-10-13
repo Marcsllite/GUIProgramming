@@ -1,5 +1,5 @@
 <!--
-   FILE: https://weblab.cs.uml.edu/~mpierre1/assignment3.html
+   FILE: https://weblab.cs.uml.edu/~mpierre1/assignment2.html
    Copyright (c) 2018 by Marc Pierre. All rights reserved.
    Author: Marc Pierre, mpierre1@cs.uml.edu,
    Class: UMass Lowell 91.61 GUI Programming I,
@@ -10,66 +10,80 @@
    On that page I introduce myself and give a quick brief overview of the website.
    Also on the home page there is the structure of a HTML document along with
    examples from the second day of class. Then at the bottom of the page I have
-   links to my assignments from the class. This is the page I had to create for
-   the third Assinment. This assingment was all about CSS so all my work is in the
-   pacific.css file.
+   links to my assignments from the class. Right now they take you back to the
+   home page but as I do more assignments I'll link them to those links for all
+   to see how I make my websites.
  -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/pacific.css" rel="stylesheet">
-  <title>GUIAssignment 3: Pacific Trails Resort</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- Linking Stylesheet -->
+  <title>GUIAssignment 2: First Webpage</title> <!-- Adding a title to document tab  -->
 </head>
 <body>
-  <div id="wrapper">
-      <header>
-          <h1>Pacific Trails Resort</h1>
-      </header>
-      <nav>
-          <ul>
-              <li><a href="index.html">Home</a>
-              </li>
-              <li><a href="yurts.html">Yurts</a>
-              </li>
-              <li><a href="activities.html">Activities</a>
-              </li>
-              <li><a href="reservations.html">Reservations</a>
-          </ul>
-      </nav>
-      <div id="content">
-          <h2>Enjoy Nature in Luxury</h2>
-          <img src="/img/coast.jpg" alt="Pacific Coast">
-          <p><span class="resort">Pacific Trails Resort</span> offers a special lodging experience on the California North Coast. Relax in serenity with panoramic views of the Pacific Ocean.</p>
-          <ul>
-              <li>Private yurts with decks overlooking the ocean</li>
-              <li>Activities lodge with fireplace and gift shop</li>
-              <li>Nightly fine dining at the Overlook Cafe</li>
-              <li>Heated outdoor pool and whirlpool</li>
-              <li>Guided hiking tours of the redwoods</li>
-          </ul>
-          <div id="contact">
-              <span class="resort">Pacific Trails Resort</span>
-              <br> 12010 Pacific Trails Road
-              <br> Zephyr, CA 95555
-              <br>
-              <br> 888-555-5555
-              <br>
-              <br>
-          </div>
-      </div>
-      <footer>
-          Copyright &copy; 2014 Pacific Trails Resort
-          <br>
-          <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
-      </footer>
+  <div id="Header"> <!-- Container to hold all things relating to the Header  -->
+    <h1>How to create an HTML5 Document</h1>
+    <h3>by: Marc Pierre</h3>
   </div>
+  <hr> <!-- Horizonal line for aesthetics and readibility -->
+  <div id="AboutMe"> <!-- Container to hold the section that give background information on me  -->
+    <p>
+    <img id="Headshot" src="img/headshot_1.jpg" alt="Image of Author">
+    <strong>About the author:</strong>
+    Hello! My name is Marc Pierre and I am a computer science major at
+    UMass Lowell. I am a junior and looking to graduate with my bachelor's degree
+    in May 2020. This webpage is going to consist of my prior knowledge of html
+    as well as the teaching in my GUI Programming I course. Along with being
+    educational, all of my examples will help me introduce myself to my classmates
+    and professor. This first page gives a brief overview of the structure of
+    an html document. Please see the links at the bottom of the page for
+    examples and my assignments from class Enjoy! </p>
+  </div>
+  <hr> <!-- Horizonal line for aesthetics and readibility -->
+  <div id="Structure"> <!-- Container to hold the section about the structure of a html document -->
+    <h2 id = structHead>Structure</h2>
+    <p>One of the first things we talked about in GUI I was structure. Everything
+    needs some kind of structure and since html is a markup language
+    (hypertext markup language) it's structure is no different than that of a word
+    document. The structure of a html document consists of:</p>
+
+    <h4 class="structh4">Document Type: &lt;!DOCTYPE html&gt; </h4>
+    <p> At the beginning of any html document you must define the type. In this case
+     &lt;!DOCTYPE&gt; html means the document is using HTML5.</p>
+
+    <h4 class="structh4">HTML and Language:</h4>
+    <p>Right after the type we want to create html tags. This defines the beginning
+      and the end of our html document. But before we can start typing away we must
+      first define the language our document will be written in. This is a pretty
+      big deal for a document that is all text. This can be done simply by
+      adding the attribute "lang" in the opening html tag. (EX: &lt;html lang="en"&gt;).</p>
+
+    <h4 class="structh4">Head Tag:</h4>
+    <p>After the language we want to setup the head of our page. The head is not seen
+    on the physical page if we were to open the document in a web browser but it serves
+    a crucial task. Its job is to set things up so the document works as intended.
+    Between the Head tags the first thing you'll need is the character set of the document.
+    This can be done by adding the &lt;meta charset="utf-8"&gt; tag. After that is
+    included you're all set to start on the body. However if there are stylesheets,
+    meta data, title, or other links and attributes you want to connect to the
+    document you can do so within the head tags.</p>
+
+    <h4 class="structh4">Body Tag:</h4>
+    <p>This is the part that everyone cares about. The body of the document. This
+    is where all the text you see on a webpage lives. This webpage will be going over
+    the tags that you'll find between the body tags and how they make your text look.</p>
+  </div>
+  <hr> <!-- Horizonal line for aesthetics and readibility -->
+  <p> Now that we know the structure of an html document. Let's take a look at some
+  examples. Click on the links below for examples of what I learned in class
+  and my other assignments.</p>
   <!-- Links to the other pages -->
-  <a href="examples.html" class="navLink">Class examples</a>
-  <a href="assignment2.html" class="navLink">Assignment 2</a>
-  <p class="currentPage">Assignment 3</p>
-  <a href="index.html">Assignemnt 4</a>
+  <a href="examples.html">Class examples</a>
+  <p class="currentPage">Assignment 2</p>
+  <a href="assignment3.html">Assignment 3</a>
+  <a href="examples.html">Assignemnt 4</a>
   <a href="assignment5.html" class="notYet">Assignment 5</a>
 </body>
 </html>
