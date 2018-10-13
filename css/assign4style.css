@@ -1,0 +1,137 @@
+/* Assignment 4 CSS page 
+Copyright (c) 2018 by Marc Pierre.
+Author: Marc Pierre, mpierre1@cs.uml.edu
+Class: UMass Lowell 91.61 GUI Programming I
+updated by MP on October 10, 2018 8:45pm
+Sources: Traversy Media youtube videos on grids, css-tricks.com, w3schools.com*/
+html {
+    box-sizing:  border-box; /*padding doesn't effect width of element*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+body {
+    background:  #ccc;
+    margin: 30px 50px; /*30px top and bottom, 50px left and right for entire body of website*/
+    line-height: 1.4;
+}
+
+img {
+    max-width: 100%; /*making sure images stay inside parents*/
+}
+    
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none; /* gets rid of bullet points */
+    grid-template-columns: repeat(4, 1fr); /* spaces out all of the items in the list */
+}
+
+/* styling for jigsaw.w3.org links */
+img .valid {
+    border: 0;
+    width: 88px;
+    height:31px;
+}
+
+.main-nav a {
+    background: #ddd;
+    display: block;
+    text-decoration: none;
+    padding: .8rem;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
+}
+
+.main-nav a:hover {
+    background: tomato;  /* on mouse hover, background of main-nav links will turn tomato */
+    color: #fff; /* on hover, color of main-nav text will turn white */
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+h4 {
+    background-color: tomato;
+}
+
+a.notYet {
+    display: none;    
+}
+
+/* Introduction */
+.introduction {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'info-box my-pic my-pic' /*specifying how I want to orient my grid */
+                         'info-box my-pic my-pic';
+}
+ 
+/* my picture */
+.my-pic{
+    grid-area: my-pic;  /* associating name for grid-template to this selector */
+    min-height: 450px;
+    min-width: 25px;
+    max-height: 500px;
+    max-width: 425px;
+    align-items: center;
+    display: grid;
+    
+}
+
+/* info-box */
+.info-box {
+    grid-area: info-box; /* associating name for grid-template to this selector */
+    display: grid;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Structure */
+.structure {
+    background: #ddd;
+    display: grid;
+    text-align: center;
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
+    padding: 1.5rem;
+}
+
+/* Boxes */
+.boxes {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* auto-fit tells the browser to handle resizing of the columns to fit the current width
+    So we will get multiple columns or less depending on window size
+    minmax tells the minimum width and max width of each box item
+    1fr makes each box 1 fraction of the autofit number 
+    (if autofit = 5 and there are 5 boxes, each box will be 1/5 the screen width)*/
+}
+
+.box {
+    background: #ddd;
+    text-align: center;
+    padding: 1.5rem 1.5rem;
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
+}
+
+/* footer */
+footer ul {
+    list-style: none; /* gets rid of bullet points */
+    text-align: center;
+}
+
+footer ul li {
+    display: inline;
+}
