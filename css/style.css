@@ -1,0 +1,65 @@
+/*
+   FILE: https://weblab.cs.uml.edu/~mpierre1/style.css
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on September 16, 2018 at 9:54 AM
+   Description: This is the style sheet for html documents titled
+   assignment2.html and examples.html.
+ */
+#Header {
+  text-align: center;
+}
+
+#AboutMe {
+  background-color: white;
+  padding: 10px;
+  overflow: auto;
+}
+
+#structHead {
+  text-align: center;
+}
+
+#Headshot {
+  width: 150px;
+  height: 150px;
+  float: left;
+  padding-right: 10px;
+}
+
+.notYet {
+  display: none;
+}
+
+.currentPage {
+  display: inline;
+  color: white;
+}
+
+.sectHead {
+  text-align: center;
+}
+
+.examples {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  border: 4px solid tomato;
+  text-align: center;
+}
+
+.structh4 {
+  border-color: white;
+  background-color: tomato;
+}
+
+hr {
+  border-color: tomato;
+  height: 3px;
+  border-width: medium;
+}
+
+body {
+  background-color: rgb(169, 169, 169);
+}
