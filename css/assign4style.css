@@ -27,9 +27,11 @@ img {
 
 /* Navigation */
 .main-nav ul {
+    border-bottom: 5px solid tomato;
     display: grid;
     grid-gap: 20px;
     padding: 0;
+    padding-bottom: 20px;
     list-style: none; /* gets rid of bullet points */
     grid-template-columns: repeat(4, 1fr); /* spaces out all of the items in the list */
 }
@@ -68,6 +70,16 @@ h4 {
 
 a.notYet {
     display: none;    
+}
+
+hr {
+     display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
 }
 
 /* Introduction */
