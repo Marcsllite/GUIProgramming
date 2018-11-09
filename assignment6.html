@@ -38,11 +38,18 @@
     <section class="Description">
       <div class="instr">
         <h1>Welcome to my Multiplication Table Generator</h1>
-        <p><strong>Directons:</strong> Enter the start  and end number of both the horizonal and vertical axis of the table (labels on form). A table will be generated below the form where every cell in the table contains the product of the horizontal </p>
+        <p><strong>Directons:</strong> Enter the start  and end number of both the 
+        horizonal and vertical axis of the table (labels on form). A table will be 
+        generated below the form where every cell in the table contains the product 
+        of the first horizontal cell and the first vertical cell.</p>
       </div>
     </section>
     <section class="form">
-      <form action=""></form>
+      <form class="myForm" action="#" onsubmit="return validateForm(this);"></form>
+    </section>
+    <section class="table">
+      <table class="myTable">
+      </table>
     </section>
   </div>
   <script src="scripts/assign6.js"></script> <!-- linking javascript file -->
