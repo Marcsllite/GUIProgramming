@@ -75,6 +75,7 @@ a.notYet {
 /* Multiplication Table Generator Introduction */
 .instr {
     text-align: center;
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
 }
 
 /* Introduction */
