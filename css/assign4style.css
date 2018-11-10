@@ -78,6 +78,42 @@ a.notYet {
     box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
 }
 
+/*Mult table form*/
+input[type=number]{
+    width: 25%;
+    font-size: 29px;
+    text-align: center;
+    padding: 0;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 12%;
+    background-color: tomato;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background: #ddd;  /* on mouse hover, background of submit button will turn tomato */
+    color: #333; /* on hover, color of text will turn white */
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
+}
+
+.form {
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+
 /* Introduction */
 .introduction {
     display: grid;
