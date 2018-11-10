@@ -45,7 +45,17 @@
       </div>
     </section>
     <section class="form">
-      <form class="myForm" action="#" onsubmit="return validateForm(this);"></form>
+      <form CLASS="myForm" action="#" onsubmit="validateForm()">
+       <label for="startX"></label> Start Number (Horizontal):
+        <input type="number" method="post" name="startX" required id="startX"><br>
+        End Number (Horizontal):
+        <input type="number" method="post" name="endX" required id="endX"><br>
+        Start Number (Vertical):
+        <input type="number" method="post" name="startY" required id="startY"><br>
+        End Number (Verical):
+        <input type="number" method="post" name="endY" required id="endY"><br>
+        <input type="submit" value="Submit">
+      </form>
     </section>
     <section class="table">
       <table class="myTable">
