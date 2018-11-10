@@ -37,70 +37,88 @@ function validateForm() {
 }
 
 function createtable(startX, endX, startY, endY) {
-    
-    
     var hRange  = []; // creating an array to hold the Horizontal Range
     var vRange = [];  // creating an array to hold the Vertical Range
     
     // Adding the numbers to the arrays
-    if (startX > endX && endY > startY) {  // checking if the horizontal range has a bigger start than an end
-        console.log("DEEZ NUTS 0");
-        // pushing horizontal values in reverse order
+    // Checking if horizontal range is in descending order and vertical range is in ascending order
+    if (startX > endX && endY > startY) { 
+        console.log("H: Descending; V: Ascending");
+        // pushing horizontal values in descending order
         for (var i = startX; i >= endX; i--) {
              hRange.push(i);
          }
         
-        // pushing vertical values in normal order
+        // pushing vertical values in ascending order
         for (var i = startY; i <= endY; i++) {
              vRange.push(i);
          }
-        
-        console.log("hRange.length = " + hRange.length);
-        console.log("vRange.length = " + vRange.length);
-        
-        // printing out the values of the array for debugging
-        for (var i = 0; i >= hRange.length; i++) {
-            console.log("hRange[" + i + "]: " + hRange[i]);
-        }
-        for (var i = 0; i >= vRange.length; i++) {
-            console.log("vRange[" + i + "]: " + vRange[i]);
-        }
     }
     
-    if (startY > endY) {  // checking if vertical range has a bigger start than end
-        console.log("DEEZ NUTS 1"); 
+    // Checking if vertical range is in descending order and horizontal range is in ascending order
+    else if (startY > endY && endX > startX) {  
+        console.log("H: Ascending V: Descending"); 
+        // pushing vertical values in descending order
         for (var i = startY; i >= endY; i--) {
              vRange.push(i);
-         }
+        }
         
-        console.log("vRange.length = " + vRange.length);
-        // printing out the values of the array for debugging
-        for (var i = 0; i >= vRange.length; i++) {
-            console.log("vRange[" + i + "]: " + vRange[i]);
+        // pushing horizontal values in ascending order
+        for (var i = startX; i <= endX; i++) {
+             hRange.push(i);
         }
     }
     
-    else {  // both ranges have smaller start and end values. Adding values to range
-       console.log("DEEZ NUTS 2");
-        for (var i = startX; i <= endX; i++) {
+    // Cheching if both ranges are in descending order
+    else if (startX > endX && startY > endY){  
+       console.log("H: Descending V: Descending");
+        // pushing horizontal values in descending order
+        for (var i = startX; i >= endX; i--) {
              hRange.push(i);
          }
         
+        // pushing vertical values in ascending order
+        for (var i = startY; i >= endY; i--) {
+             vRange.push(i);
+        }
+    }
+    
+    // Both ranges are in ascending order
+    else if (endX > startX && endY > startY) {  
+       console.log("H: Ascending V: Ascending");
+        // pushing horizontal values in ascending order
+        for (var i = startX; i <= endX; i++) {
+             hRange.push(i);
+        }
+        
+        // pushing vertical values in ascending order
         for (var i = startY; i <= endY; i++) {
              vRange.push(i);
-         }
-        
-        console.log("hRange.length = " + hRange.length);
-        console.log("vRange.length = " + vRange.length);
-        // printing out the values of the array for debugging
-        for (var i = 0; i >= hRange.length; i++) {
-            console.log("hRange[" + i + "]: " + hRange[i]);
-        }
-        for (var i = 0; i >= vRange.length; i++) {
-            console.log("vRange[" + i + "]: " + vRange[i]);
         }
     }
     
     // Creating table
+    var table = document.getElementById("myTable");  // getting table element from document
+    var r1 = table.insertRow(0);  // creating first row
+    var r2, newC = r1.insertCell(0); // adding blank cell
+    newC.innterHTML = "deez nuts";
+    for (var i = 0; i < hRange.length; i++) {  // Adding hRange numbers onto first range
+        newC = r1.insertCell(i + 1);
+        newC.innterHTML = hRange[i];
+    }
     
+    // creating remainging rows and adding values to the respective cells
+    for (var v = 1; v < vRange.length; v++) {
+        r2 = table.insertRow(v);
+        for (var h = 0; h <= hRange.length; h++) {
+            newC = r2.insertCell(h)
+            if (h == 0) {
+                newC.innterHTML = vRange[h];
+            }
+            
+            else {
+                newC.innterHTML = hRange[h-1] * vRange[h];
+            }
+        }
+    }
 }
