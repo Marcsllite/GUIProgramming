@@ -148,7 +148,7 @@ function createtable(startX, endX, startY, endY) {
     
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
-    // removing old table data if any so there's onlt one table per submit
+    // removing old table data if any so there's only one table per submit
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
