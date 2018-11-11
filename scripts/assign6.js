@@ -106,13 +106,12 @@ function createtable(startX, endX, startY, endY) {
     
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
-    
     var r1 = table.insertRow(0);  // creating first row
     var r2, newC = r1.insertCell(0); // adding blank cell
 
     for (var i = 0; i < hRange.length; i++) {  // Adding hRange numbers onto first range
         newC = r1.insertCell(-1);
-        newC.innerHTML = hRange[i];
+        newC.innerHTML = "<b>" + hRange[i] + "</b>";
     }
 
     // creating remainging rows and adding values to the respective cells
@@ -121,7 +120,7 @@ function createtable(startX, endX, startY, endY) {
         for (var h = 0; h <= hRange.length; h++) {
             if (h == 0) {
                 newC = r2.insertCell(-1);
-                newC.innerHTML = vRange[v-1];
+                newC.innerHTML = "<b>" + vRange[v-1] + "</b>";
             }
 
             else {
