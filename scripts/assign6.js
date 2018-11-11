@@ -49,8 +49,7 @@ function createtable(startX, endX, startY, endY) {
     
     // Adding the numbers to the arrays
     // Checking if horizontal range is in descending order and vertical range is in ascending order
-    if (startX > endX && endY > startY) { 
-        console.log("H: Descending; V: Ascending");
+    if (startX > endX && startY < endY) { 
         // pushing horizontal values in descending order
         for (var i = startX; i >= endX; i--) {
              hRange.push(i);
@@ -63,8 +62,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // Checking if vertical range is in descending order and horizontal range is in ascending order
-    else if (startY > endY && endX > startX) {  
-        console.log("H: Ascending V: Descending"); 
+    else if (startX < endX && startY > endY) {  
         // pushing vertical values in descending order
         for (var i = startY; i >= endY; i--) {
              vRange.push(i);
@@ -78,21 +76,19 @@ function createtable(startX, endX, startY, endY) {
     
     // Cheching if both ranges are in descending order
     else if (startX > endX && startY > endY){  
-       console.log("H: Descending V: Descending");
         // pushing horizontal values in descending order
         for (var i = startX; i >= endX; i--) {
              hRange.push(i);
          }
         
-        // pushing vertical values in ascending order
+        // pushing vertical values in descending order
         for (var i = startY; i >= endY; i--) {
              vRange.push(i);
         }
     }
     
     // Both ranges are in ascending order
-    else if (endX > startX && endY > startY) {  
-       console.log("H: Ascending V: Ascending");
+    else if (startX < endX && startY < endY) {  
         // pushing horizontal values in ascending order
         for (var i = startX; i <= endX; i++) {
              hRange.push(i);
@@ -104,14 +100,72 @@ function createtable(startX, endX, startY, endY) {
         }
     }
     
+    // Checking if horizontal start and end are the same and vertical range is in ascending order
+    else if (startX == endX && startY < endY) {
+        hRange.push(startX);
+        
+        // pushing vertical values in ascending order
+        for (var i = startY; i <= endY; i++) {
+             vRange.push(i);
+        }
+    }
+    
+    // Checking if horizontal start and end are the same and vertical range is in descending order
+    else if (startX == endX && startY > endY) {
+        hRange.push(startX);
+        
+        // pushing vertical values in descending order
+        for (var i = startY; i >= endY; i--) {
+             vRange.push(i);
+        }
+    }
+    
+    // Checking if vertical start and end are the same and horizontal range is in ascending order
+    else if (startX < endX && startY == endY) {
+        vRange.push(startY);  
+        
+        // pushing horizontal values in ascending order
+        for (var i = startX; i <= endX; i++) {
+             hRange.push(i);
+        }
+    }
+    
+    // Checking if vertical start and end are the same and horizontal range is in descending order
+    else if (startX > endX && startY == endY) {
+        vRange.push(startY);
+        
+        // pushing horizontal values in descending order
+        for (var i = startX; i >= endX; i--) {
+             hRange.push(i);
+         }
+    }
+    
+    // horizontal start and end are same number and vertical start and end are same number
+    else if (startX == endX && startY == endY) {
+        hRange.push(startX);
+        vRange.push(startY);
+    }
+    
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
+    // removing old table data if any so there's onlt one table per submit
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
     var r1 = table.insertRow(0);  // creating first row
-    var r2, newC = r1.insertCell(0); // adding blank cell
-
-    for (var i = 0; i < hRange.length; i++) {  // Adding hRange numbers onto first range
-        newC = r1.insertCell(-1);
-        newC.innerHTML = "<b>" + hRange[i] + "</b>";
+    var r2, newC; // adding blank cell
+    
+    // adding empty th tag to first cell
+    var newTH = document.createElement("TH");
+    document.getElementsByTagName("TR")[0].appendChild(newTH);
+    
+    for (var i = 0; i < hRange.length; i++) {  // Adding th elements with value of hRange to the table header
+//        newC = r1.insertCell(-1);
+//        newC.innerHTML = "<b>" + hRange[i] + "</b>";
+        
+        newTH = document.createElement("TH");
+        newTH.innerHTML = "<b>" + hRange[i] + "</b>";
+        document.getElementsByTagName("TR")[0].appendChild(newTH);
     }
 
     // creating remainging rows and adding values to the respective cells
