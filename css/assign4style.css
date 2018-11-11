@@ -126,7 +126,7 @@ th, td {
     padding: 8px;
 }
 
-th {
+th, td:first-child {
     background-color: tomato;
     color: white;
 }
