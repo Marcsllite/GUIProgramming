@@ -125,7 +125,7 @@ th, td {    /* aligning table cell text*/
     padding: 8px;
 }
 
-th, td:first-child {  /* coloring vertical table header*/
+td:first-child, tr:first-of-type {  /* coloring vertical table header*/
     background-color: tomato;
     color: white;
 }
