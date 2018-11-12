@@ -190,8 +190,7 @@ function createtable(startX, endX, startY, endY) {
     
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
-    
-    
+
     var r1 = table.insertRow(0);  // creating first row
     var r2, newC = r1.insertCell(-1); // adding blank cell
     
