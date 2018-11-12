@@ -31,13 +31,13 @@ function validateForm() {
     }
     
     // Making sure range is not too big. Alerting user if they need to change the range
-    if(Math.abs(startX - endX) > 100000 || Math.abs(startY - endY) > 100000) {
-        alert("One of the Ranges (Horizontal or Vertical) is greater than 100,000." +
-              "Please use start and end values that are no more than 100,000 apart.");
+    if(Math.abs(startX - endX) > 10000 || Math.abs(startY - endY) > 10000) {
+        alert("One of the Ranges (End Number - Start Number) is greater than 10,000." +
+              "Please use start and end values that are no more than 10,000 apart.");
         return;
     }
     
-    // values are in variables and ranges are less than or equal to 100,000
+    // values are in variables and ranges are less than or equal to 10,000
     // calling create table with those variables
     createtable(startX, endX, startY, endY);
     return;
