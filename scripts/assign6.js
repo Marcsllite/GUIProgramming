@@ -24,7 +24,7 @@ function validateForm() {
             return;
         } else {
             console.log("StartX: " + startX + "; StartX is less than -9007199254740990");
-            alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,990).");
+            alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
             return;
         }
     }
@@ -36,7 +36,7 @@ function validateForm() {
             return;
         } else {
             console.log("EndX: " + endX + "; EndX is less than -9007199254740990");
-            alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,990).");
+            alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
             return;
         }
     }
@@ -48,7 +48,7 @@ function validateForm() {
             return;
         } else {
             console.log("StartY: " + startY + "; StartY is less than -9007199254740990");
-            alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,990).");
+            alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
             return;
         }
     }
@@ -60,7 +60,7 @@ function validateForm() {
             return;
         } else {
             console.log("EndY: " + endY + "; EndY is less than -9007199254740990");
-            alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,990).");
+            alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
             return;
         }
     }
