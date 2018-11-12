@@ -1,40 +1,78 @@
 function validateForm() {
     //event.preventDefault();
     // getting values from the form
-    var startX = document.getElementById("startX").value;
-    var endX = document.getElementById("endX").value;
-    var startY = document.getElementById("startY").value;
-    var endY = document.getElementById("endY").value;
+    var startX = document.getElementById("myForm").elements["startX"].value;
+    var endX = document.getElementById("myForm").elements["endX"].value;
+    var startY = document.getElementById("myForm").elements["startY"].value;
+    var endY = document.getElementById("myForm").elements["endY"].value;
     
+  
+    // turning string values of the numers into actual numbers
+    startX = Number(startX);
+    endX = Number(endX);
+    startY = Number(startY);
+    endY = Number(endY);
+  
     // Checking if the number from the form was obtained, 
     // if not message send to console and user is alerted
-    if(Number.isSafeInteger(startX)){
-        console.log("StartX: " + startX + "; Failed to get StartX");
-        alert("The value in 'Start Number (Horizontal)' could not be fetched.");
+    if (!Number.isSafeInteger(startX)){
+      if (startX > 0) {
+        console.log("StartX: " + startX + "; StartX is greater than 9007199254740991");
+        alert("The value in 'Start Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
         return;
+      }
+      else {
+        console.log("StartX: " + startX + "; StartX is less than -9007199254740990");
+        alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,990).");
+        return;
+      }
     }
     
-    if(Number.isSafeInteger(endX)){
-        console.log("EndX: " + endX + "; Failed to get EndX");
-        alert("The value in 'End Number (Horizontal)' could not be fetched.");
+    if (!Number.isSafeInteger(endX)){
+      if (endX > 0) {
+        console.log("EndX: " + endX + "; EndX is greater than 9007199254740991");
+        alert("The value in 'End Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
         return;
+      }
+      else{
+         console.log("EndX: " + endX + "; EndX is less than -9007199254740990");
+        alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,990).");
+        return;
+      }
     }
-    if(Number.isSafeInteger(startY)){
-        console.log("StartY: " + startY + "; Failed to get StartY");
-        alert("The value in 'Start Number (Vertical)' could not be fetched.");
+    if (!Number.isSafeInteger(startY)){
+      if (startY > 0) {
+        console.log("StartY: " + startY + "; StartY is greater than 9007199254740991");
+        alert("The value in 'Start Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
         return;
+      }
+      else {
+        console.log("StartY: " + startY + "; StartY is less than -9007199254740990");
+        alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,990).");
+        return;
+      }
     }
-    if(Number.isSafeInteger(endY)){
-        console.log("EndY: " + endY + "; Failed to get EndY");
-        alert("The value in 'End Number (Vertical)' could not be fetched.");
+    if (!Number.isSafeInteger(endY)){
+      if (endY > 0) {
+        console.log("EndY: " + endY + "; EndY is greater than 9007199254740991");
+        alert("The value in 'End Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
         return;
+      }
+      else {
+        console.log("EndY: " + endY + "; EndY is less than -9007199254740990");
+        alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,990).");
+        return;
+      }
     }
     
     // Making sure range is not too big. Alerting user if they need to change the range
-    if(Math.abs(startX - endX) > 10000 || Math.abs(startY - endY) > 10000) {
-        alert("One of the Ranges (End Number - Start Number) is greater than 10,000." +
-              "Please use start and end values that are no more than 10,000 apart.");
+    if(Math.abs(startX - endX) > 100000 || Math.abs(startY - endY) > 100000) {
+        alert("One of the Ranges (End Number - Start Number) is greater than 100,000." +
+              "Please use start and end values that are no more than 100,000 apart.");
         return;
+      else {
+        
+      }
     }
     
     // removing old table data if any so there's only one table per submit
@@ -43,7 +81,7 @@ function validateForm() {
         table.removeChild(table.firstChild);
     }
   
-    // values are in variables and ranges are less than or equal to 10,000
+    // values are in variables and ranges are less than or equal to 100,000
     // calling create table with those variables
     createtable(startX, endX, startY, endY);
     return;
@@ -151,7 +189,7 @@ function createtable(startX, endX, startY, endY) {
         hRange.push(startX);
         vRange.push(startY);
     }
-    
+    /*
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
     
@@ -180,4 +218,5 @@ function createtable(startX, endX, startY, endY) {
         }
     }
     return;
+  */
 }
