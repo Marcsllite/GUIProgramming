@@ -1,5 +1,5 @@
 function validateForm() {
-    event.preventDefault();
+    //event.preventDefault();
     // getting values from the form
     var startX = document.getElementById("startX").value;
     var endX = document.getElementById("endX").value;
@@ -37,6 +37,12 @@ function validateForm() {
         return;
     }
     
+    // removing old table data if any so there's only one table per submit
+    var table = document.getElementById("myTable");
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+  
     // values are in variables and ranges are less than or equal to 10,000
     // calling create table with those variables
     createtable(startX, endX, startY, endY);
@@ -148,24 +154,14 @@ function createtable(startX, endX, startY, endY) {
     
     // Creating table
     var table = document.getElementById("myTable");  // getting table element from document
-    // removing old table data if any so there's only one table per submit
-    while (table.firstChild) {
-        table.removeChild(table.firstChild);
-    }
-    var r1 = table.insertRow(0);  // creating first row
-    var r2, newC; // adding blank cell
     
-    // adding empty th tag to first cell
-    var newTH = document.createElement("TH");
-    document.getElementsByTagName("TR")[0].appendChild(newTH);
+    
+    var r1 = table.insertRow(0);  // creating first row
+    var r2, newC = r1.insertCell(-1); // adding blank cell
     
     for (var i = 0; i < hRange.length; i++) {  // Adding th elements with value of hRange to the table header
-//        newC = r1.insertCell(-1);
-//        newC.innerHTML = "<b>" + hRange[i] + "</b>";
-        
-        newTH = document.createElement("TH");
-        newTH.innerHTML = "<b>" + hRange[i] + "</b>";
-        document.getElementsByTagName("TR")[0].appendChild(newTH);
+        newC = r1.insertCell(-1);
+        newC.innerHTML = "<b>" + hRange[i] + "</b>";
     }
 
     // creating remainging rows and adding values to the respective cells
