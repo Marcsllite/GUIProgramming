@@ -1,5 +1,5 @@
-function validateForm() {
-    "use strict";
+"use strict";
+ var validateForm = function() {
     event.preventDefault();
     // getting values from the form
     var startX = document.getElementById("myForm").elements.startX.value, 
@@ -83,8 +83,7 @@ function validateForm() {
     return;
 }
 
-function createtable(startX, endX, startY, endY) {
-    "use strict";
+var createtable = function(startX, endX, startY, endY) {
     var hRange  = [], // creating an array to hold the Horizontal Range
         vRange = [],  // creating an array to hold the Vertical Range
         i;
@@ -143,7 +142,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // Checking if horizontal start and end are the same and vertical range is in ascending order
-    else if (startX == endX && startY < endY) {
+    else if (startX === endX && startY < endY) {
         hRange.push(startX);
         
         // pushing vertical values in ascending order
@@ -153,7 +152,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // Checking if horizontal start and end are the same and vertical range is in descending order
-    else if (startX == endX && startY > endY) {
+    else if (startX === endX && startY > endY) {
         hRange.push(startX);
         
         // pushing vertical values in descending order
@@ -163,7 +162,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // Checking if vertical start and end are the same and horizontal range is in ascending order
-    else if (startX < endX && startY == endY) {
+    else if (startX < endX && startY === endY) {
         vRange.push(startY);  
         
         // pushing horizontal values in ascending order
@@ -173,7 +172,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // Checking if vertical start and end are the same and horizontal range is in descending order
-    else if (startX > endX && startY == endY) {
+    else if (startX > endX && startY === endY) {
         vRange.push(startY);
         
         // pushing horizontal values in descending order
@@ -183,7 +182,7 @@ function createtable(startX, endX, startY, endY) {
     }
     
     // horizontal start and end are same number and vertical start and end are same number
-    else if (startX == endX && startY == endY) {
+    else if (startX === endX && startY === endY) {
         hRange.push(startX);
         vRange.push(startY);
     }
@@ -194,21 +193,19 @@ function createtable(startX, endX, startY, endY) {
     var r1 = table.insertRow(0);  // creating first row
     var r2, newC = r1.insertCell(-1); // adding blank cell
     
-    for (i = 0; i < hRange.length; i+=1) {  // Adding th elements with value of hRange to the table header
+    for (i = 0; i < hRange.length; i+=1) {  // Adding td elements with value of hRange to the table header
         newC = r1.insertCell(-1);
         newC.innerHTML = "<b>" + hRange[i] + "</b>";
     }
 
-    // creating remainging rows and adding values to the respective cells
+    // creating remaining rows and adding values to the respective cells
     for (var v = 1; v <= vRange.length; v+=1) {
         r2 = table.insertRow(v);
         for (var h = 0; h <= hRange.length; h+=1) {
-            if (h == 0) {
+            if (h === 0) {
                 newC = r2.insertCell(-1);
                 newC.innerHTML = "<b>" + vRange[v-1] + "</b>";
-            }
-
-            else {
+            } else {
                 newC = r2.insertCell(-1);
                 newC.innerHTML = hRange[h-1] * vRange[v-1];
             }
