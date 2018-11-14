@@ -1,3 +1,11 @@
+/*
+   FILE: https://marcsllite.github.io/GUIProgramming/css/pacific.css
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on November 14, 2018 at 8:29 AM
+   Description: This is the style sheet for assignment 3.
+ */
 html{
 	background-color: #00569f;
 	background: url(../img/ptrbackground.jpg);
@@ -64,8 +72,8 @@ footer {
 #wrapper {
 	display: grid;
 	grid-template-areas: 'header header'
-						 'nav content'
-						 'nav footer';
+			      'nav content'
+			      'nav footer';
 	min-width: 600px;
 	width: 80%;
 	margin-top: 20px;
