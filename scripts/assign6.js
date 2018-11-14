@@ -15,7 +15,7 @@
     startY = Number(startY);
     endY = Number(endY);
   
-    // Checking if the number from the form was obtained, 
+    // Checking if the number from the form was obtained and is a safe Integer, 
     // if not message send to console and user is alerted
     if (!Number.isSafeInteger(startX)) {
         if (startX > 0) {
@@ -65,7 +65,7 @@
         }
     }
     
-    // Making sure range is not too big. Alerting user if they need to change the range
+    // Making sure range is not too big. Alerting user if they need to change the range (for speed of page)
     if (Math.abs(startX - endX) > 1000 || Math.abs(startY - endY) > 1000) {
         alert("One of the Ranges (End Number - Start Number) is greater than 1,000." +
               "Please use start and end values that are no more than 1,000 apart.");
@@ -193,7 +193,7 @@ var createtable = function(startX, endX, startY, endY) {
     var r1 = table.insertRow(0);  // creating first row
     var r2, newC = r1.insertCell(-1); // adding blank cell
     
-    for (i = 0; i < hRange.length; i+=1) {  // Adding td elements with value of hRange to the table header
+    for (i = 0; i < hRange.length; i+=1) {  // Adding td elements with value of hRange to the first table row
         newC = r1.insertCell(-1);
         newC.innerHTML = "<b>" + hRange[i] + "</b>";
     }
