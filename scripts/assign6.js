@@ -1,4 +1,4 @@
-<!--
+/*
    FILE: https://weblab.cs.uml.edu/~mpierre1/assignment6.html
    Copyright (c) 2018 by Marc Pierre. All rights reserved.
    Author: Marc Pierre, mpierre1@cs.uml.edu,
@@ -7,7 +7,7 @@
    Description: This javascript corresponds to assignment 6. In this
    file you'll find code for validating user input as well as code for
    generating a multiplication table from the user input.
- -->
+*/
 "use strict";
  var validateForm = function() {
     event.preventDefault();
