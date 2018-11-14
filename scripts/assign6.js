@@ -1,5 +1,5 @@
 /*
-   FILE: https://weblab.cs.uml.edu/~mpierre1/assignment6.html
+   FILE: https://marcsllite.github.io/GUIProgramming/scripts/assign6.js
    Copyright (c) 2018 by Marc Pierre. All rights reserved.
    Author: Marc Pierre, mpierre1@cs.uml.edu,
    Class: UMass Lowell 91.61 GUI Programming I,
