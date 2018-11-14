@@ -1,3 +1,13 @@
+<!--
+   FILE: https://weblab.cs.uml.edu/~mpierre1/assignment6.html
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on November 14, 2018 at 8:36 AM
+   Description: This javascript corresponds to assignment 6. In this
+   file you'll find code for validating user input as well as code for
+   generating a multiplication table from the user input.
+ -->
 "use strict";
  var validateForm = function() {
     event.preventDefault();
