@@ -1,9 +1,14 @@
-/* Assignment 4 CSS page 
+/* Assignment 4/6 CSS page
+URL: https://marcsllite.github.io/GUIProgramming/css/assign4style.css
 Copyright (c) 2018 by Marc Pierre.
 Author: Marc Pierre, mpierre1@cs.uml.edu
 Class: UMass Lowell 91.61 GUI Programming I
 updated by MP on October 10, 2018 8:45pm
-Sources: Traversy Media youtube videos on grids, css-tricks.com, w3schools.com*/
+Sources: Traversy Media youtube videos on grids, css-tricks.com, w3schools.com
+Description: This si the style sheet for index.html and assignment6.html. Later
+this will become the style sheet for the entire website.
+*/
+
 html {
     box-sizing:  border-box; /*padding doesn't effect width of element*/
     font-family: Arial, Helvetica, sans-serif;
