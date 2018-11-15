@@ -223,3 +223,6 @@ var createtable = function(startX, endX, startY, endY) {
     }
     return;
 }
+
+// making sure onclick of the submit button validateForm is called
+document.querySelector("#btnSubmit").addEventListener('click', validateForm);
