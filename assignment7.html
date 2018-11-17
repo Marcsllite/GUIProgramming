@@ -1,0 +1,68 @@
+<!--
+   FILE: https://marcsllite.github.io/GUIProgramming/assignment7.html
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on November 14, 2018 at 8:24 AM
+   Description: This webpages is the 7th assignment from GUI I. 
+   This is the same assignment as assignment 6 except it
+   adds live error detecting using jquery.
+ -->
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- using Google JQuery CDN -->
+  <link rel="stylesheet" href="css/assign4style.css"> <!-- Linking Stylesheet -->
+  <title>GUIAssignment 7: Multiplication Table with live error handling</title> <!-- Adding a title to document tab  -->
+</head>
+<body>
+  <div class = "wrapper">
+    <div class="main-nav">
+      <ul>
+        <li> <a href="examples.html">examples</a> </li>
+        <li> <a href="assignment2.html">Assignment 2</a> </li>
+        <li> <a href="assignment3.html">Assignment 3</a> </li>
+        <li> <a href="index.html" >Assignment 4</a> </li>
+        <li> <a href="assignment6.html">Assignment 6</a> </li>
+        <li> <a href="#" class="currentPage">Assignment 7</a> </li>
+        <li> <a href="assignment8.html" class="notYet">Assignment 8</a> </li>
+        <li> <a href="assignment9.html" class="notYet">Assignment 9</a> </li>
+      </ul>
+    </div>
+    <section class="Description">
+      <div class="instr">
+        <h1>Welcome to my Multiplication Table Generator V2.0 (with Live Error Messages)</h1>
+        <p><strong>Directons:</strong> Enter the start  and end number of both the 
+        horizonal and vertical axis of the table (labels on form). A table will be 
+        generated below the form where every cell in the table contains the product 
+        of the first horizontal cell and the first vertical cell.</p>
+        <p><strong>Restrictions:</strong> <br>
+          Each number can be between 9,007,199,254,740,991 and -9,007,199,254,740,991. <br>
+          Horizontal and Vertical Ranges must be within 1000. <br> <br> Example: Start Number (Horizontal): 1249, End Number (Horizontal): 300 (1249 - 300 = 949)
+        </p>
+      </div>
+    </section>
+    <section class="form">
+      <form id="myForm" action="#" >
+       <label for="startX">Start Number (Horizontal):</label> 
+        <input type="number" name="startX" required><br>
+        <label for="endx">End Number (Horizontal):</label> 
+        <input type="number" name="endX" required><br>
+        <label for="startY">Start Number (Vertical):</label> 
+        <input type="number" name="startY" required><br>
+        <label for="endY">End Number (Verical):</label> 
+        <input type="number" name="endY" required><br>
+        <input type="submit" value="Submit" id="btnSubmit">
+      </form>
+    </section>
+    <section class="table">
+      <table id="myTable">
+      </table>
+    </section>
+  </div>
+  <script src="scripts/assign7.js"></script> <!-- linking jquery file -->
+</body>
+</html>
+
