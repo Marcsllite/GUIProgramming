@@ -120,6 +120,12 @@ input[type=submit]:hover {
     padding: 20px;
 }
 
+/*Error styling*/
+.error {
+    color: red;
+    bo
+}
+
 /* Table */
 table {
     width: 100%;
