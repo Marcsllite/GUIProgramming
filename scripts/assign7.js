@@ -7,8 +7,108 @@
    Description: This jquery corresponds to assignment 6. In this
    file you'll find code for validating user input as well as code for
    generating a multiplication table from the user input.
+   References: https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
+   https://formden.com/blog/validate-contact-form-jquery
 */
 "use strict";
+$(function(){
+    $("#startX").on("input", function(){
+        var startInput = $(this).val();
+        startInput = Number(startInput);
+        // adding or removing error styling and message
+        // based on if field is empty or not
+        if(startInput || startInput === 0) {
+            $(this).removeClass("invalid").addClass("valid");
+            $("#eSX").css("display", "none");
+            // checking if user's input is valid integer
+            if(!Number.isSafeInteger(startInput)) {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eSX").text("Number entered is invalid!").css("display", "inline");
+            }
+            //startX = Number($("startX").val());
+        } else {
+            $(this).removeClass("valid").addClass("invalid");
+            $("#eSX").css("display", "inline");
+        }
+    });
+    
+    $("#endX").on("input", function(){
+        var startInput = $(this).val();
+        startInput = Number(startInput);
+        // adding or removing error styling and message
+        // based on if field is empty or not
+        if(startInput || startInput === 0) {
+            $(this).removeClass("invalid").addClass("valid");
+            $("#eEX").css("display", "none");
+            // checking if user's input is valid integer
+            if(!Number.isSafeInteger(startInput)) {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eEX").text("Number entered is invalid!").css("display", "inline");
+            }
+           // endX = Number($("endX").val());
+        } else {
+            $(this).removeClass("valid").addClass("invalid");
+            $("#eEX").css("display", "inline");
+        }
+    });
+    
+    $("#startY").on("input", function(){
+        var startInput = $(this).val();
+        startInput = Number(startInput);
+        // adding or removing error styling and message
+        // based on if field is empty or not
+        if(startInput || startInput === 0) {
+            $(this).removeClass("invalid").addClass("valid");
+            $("#eSY").css("display", "none");
+            // checking if user's input is valid integer
+            if(!Number.isSafeInteger(startInput)) {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eSY").text("Number entered is invalid!").css("display", "inline");
+            }
+            //startY = Number($("startY").val());
+        } else {
+            $(this).removeClass("valid").addClass("invalid");
+            $("#eSY").css("display", "inline");
+        }
+    });
+    
+    $("#endY").on("input", function(){
+        var startInput = $(this).val();
+        startInput = Number(startInput);
+        // adding or removing error styling and message
+        // based on if field is empty or not
+        if(startInput || startInput === 0) {
+            $(this).removeClass("invalid").addClass("valid");
+            $("#eEY").css("display", "none");
+            // checking if user's input is valid integer
+            if(!Number.isSafeInteger(startInput)) {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eEY").text("Number entered is invalid!").css("display", "inline");
+            }
+            //endY = Number($("endY").val());
+        } else {
+            $(this).removeClass("valid").addClass("invalid");
+            $("#eEY").css("display", "inline");
+        }
+    });
+    
+
+    // checking horizontal range
+//    if(startX && endX) {
+//        console.log("StartX: " + startX + "endX: " + endX);
+//        if(Math.abs(startX - endX) > 1000) {
+//            $("#startX").removeClass("valid").addClass("invalid");
+//            $("#endX").removeClass("valid").addClass("invalid");
+//            $("#eSX").css("display", "none");
+//            $("#eEX").text("Horizontal Range is greater than 1000").css("display", "inline");
+//        } else {
+//            $("#startX").removeClass("invalid").addClass("valid");
+//            $("#endX").removeClass("invalid").addClass("valid");
+//            $("#eX").css("display", "none");
+//        }
+//    }
+});
+
  var validateForm = function() {
     event.preventDefault();
     // getting values from the form
