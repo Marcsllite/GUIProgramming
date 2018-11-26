@@ -47,17 +47,17 @@
     <section class="form">
       <form id="myForm" action="#" >
        <label for="startX">Start Number (Horizontal):</label> 
-        <input type="number" name="startX" required>
-        <span class="errmsg">Number is not valid. Please enter a different number</span><br>
+        <input type="number" name="startX" id="startX" class="invalid" required>
+        <span class="errmsg" id="eSX">This field is required!</span><br>
         <label for="endx">End Number (Horizontal):</label> 
-        <input type="number" name="endX" required>
-        <span class="errmsg">Number is not valid. Please enter a different number</span><br>
+        <input type="number" name="endX" id="endX" class="invalid" required>
+        <span class="errmsg" id="eEX">This field is required!</span><br>
         <label for="startY">Start Number (Vertical):</label> 
-        <input type="number" name="startY" required>
-        <span class="errmsg">Number is not valid. Please enter a different number</span><br>
+        <input type="number" name="startY" id="startY" class="invalid" required>
+        <span class="errmsg" id="eSY">This field is required!</span><br>
         <label for="endY">End Number (Verical):</label> 
-        <input type="number" name="endY" required>
-        <span class="errmsg">Number is not valid. Please enter a different number</span><br>
+        <input type="number" name="endY" id="endY" class="invalid" required>
+        <span class="errmsg" id="eEY">This field is required!</span><br>
         <input type="submit" value="Submit" id="btnSubmit">
       </form>
     </section>
