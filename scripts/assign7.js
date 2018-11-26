@@ -17,7 +17,7 @@ $(function(){
         startInput = Number(startInput);
         // adding or removing error styling and message
         // based on if field is empty or not
-        if(startInput || startInput === 0) {
+        if(startInput || $(this).val() === "0") {
             $(this).removeClass("invalid").addClass("valid");
             $("#eSX").css("display", "none");
             // checking if user's input is valid integer
@@ -25,7 +25,6 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSX").text("Number entered is invalid!").css("display", "inline");
             }
-            //startX = Number($("startX").val());
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eSX").css("display", "inline");
@@ -37,7 +36,7 @@ $(function(){
         startInput = Number(startInput);
         // adding or removing error styling and message
         // based on if field is empty or not
-        if(startInput || startInput === 0) {
+        if(startInput || $(this).val() === "0") {
             $(this).removeClass("invalid").addClass("valid");
             $("#eEX").css("display", "none");
             // checking if user's input is valid integer
@@ -45,7 +44,6 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEX").text("Number entered is invalid!").css("display", "inline");
             }
-           // endX = Number($("endX").val());
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eEX").css("display", "inline");
@@ -57,7 +55,7 @@ $(function(){
         startInput = Number(startInput);
         // adding or removing error styling and message
         // based on if field is empty or not
-        if(startInput || startInput === 0) {
+        if(startInput || $(this).val() === "0") {
             $(this).removeClass("invalid").addClass("valid");
             $("#eSY").css("display", "none");
             // checking if user's input is valid integer
@@ -65,7 +63,6 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSY").text("Number entered is invalid!").css("display", "inline");
             }
-            //startY = Number($("startY").val());
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eSY").css("display", "inline");
@@ -77,7 +74,7 @@ $(function(){
         startInput = Number(startInput);
         // adding or removing error styling and message
         // based on if field is empty or not
-        if(startInput || startInput === 0) {
+        if(startInput || $(this).val() === "0") {
             $(this).removeClass("invalid").addClass("valid");
             $("#eEY").css("display", "none");
             // checking if user's input is valid integer
@@ -85,14 +82,12 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEY").text("Number entered is invalid!").css("display", "inline");
             }
-            //endY = Number($("endY").val());
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eEY").css("display", "inline");
         }
     });
     
-
     // checking horizontal range
 //    if(startX && endX) {
 //        console.log("StartX: " + startX + "endX: " + endX);
