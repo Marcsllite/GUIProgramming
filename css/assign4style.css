@@ -121,9 +121,14 @@ input[type=submit]:hover {
 }
 
 /*Error styling*/
-.error {
+.errmsg {
     color: red;
-    bo
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+input.invalid {
+    border: 5px solid red;
 }
 
 /* Table */
