@@ -46,7 +46,9 @@
     </section>
     <section class="form">
       <form id="myForm" action="#" >
-       <label for="startX">Start Number (Horizontal):</label> 
+        <span class="noerr" id="errHR">Horizontal Range is greater than 1000</span><br>
+        <span class="noerr" id="errVR">Vertical Range is greater than 1000</span><br>
+        <label for="startX">Start Number (Horizontal):</label>
         <input type="number" name="startX" id="startX" class="invalid" required>
         <span class="errmsg" id="eSX">This field is required!</span><br>
         <label for="endx">End Number (Horizontal):</label> 
