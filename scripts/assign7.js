@@ -12,6 +12,7 @@
 */
 "use strict";
 $(function(){
+    var startX, endX, startY, endY;
     $("#startX").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
@@ -25,10 +26,45 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSX").text("Number entered is invalid!").css("display", "inline");
             }
+            startX = startInput;
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eSX").css("display", "inline");
         }
+        
+        // checking input of endX for range check
+        $("#endX").on("input", function(){
+            var startInput = $(this).val();
+            startInput = Number(startInput);
+            // adding or removing error styling and message
+            // based on if field is empty or not
+            if(startInput || $(this).val() === "0") {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eEX").css("display", "none");
+                // checking if user's input is valid integer
+                if(!Number.isSafeInteger(startInput)) {
+                    $(this).removeClass("valid").addClass("invalid");
+                    $("#eEX").text("Number entered is invalid!").css("display", "inline");
+                }
+                endX = startInput;
+            } else {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eEX").css("display", "inline");
+            }
+            
+            // checking horizontal range
+            if(startX && endX) {
+                if(Math.abs(startX - endX) > 1000) {
+                    $("#startX").removeClass("valid").addClass("invalid");
+                    $("#endX").removeClass("valid").addClass("invalid");    
+                    $("#errHR").removeClass("noerr").addClass("errmsg");
+                } else {
+                    $("#startX").removeClass("invalid").addClass("valid");
+                    $("#endX").removeClass("invalid").addClass("valid");
+                    $("#errHR").removeClass("errmsg").addClass("noerr");
+                }
+            }
+        });
     });
     
     $("#endX").on("input", function(){
@@ -44,10 +80,45 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEX").text("Number entered is invalid!").css("display", "inline");
             }
+            endX = startInput;
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eEX").css("display", "inline");
         }
+        
+        //checking input of startX for range check
+        $("#startX").on("input", function(){
+            var startInput = $(this).val();
+            startInput = Number(startInput);
+            // adding or removing error styling and message
+            // based on if field is empty or not
+            if(startInput || $(this).val() === "0") {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eSX").css("display", "none");
+                // checking if user's input is valid integer
+                if(!Number.isSafeInteger(startInput)) {
+                    $(this).removeClass("valid").addClass("invalid");
+                    $("#eSX").text("Number entered is invalid!").css("display", "inline");
+                }
+                startX = startInput;
+            } else {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eSX").css("display", "inline");
+            }
+            
+            // checking horizontal range
+            if(startX && endX) {
+                if(Math.abs(startX - endX) > 1000) {
+                    $("#startX").removeClass("valid").addClass("invalid");
+                    $("#endX").removeClass("valid").addClass("invalid");    
+                    $("#errHR").removeClass("noerr").addClass("errmsg");
+                } else {
+                    $("#startX").removeClass("invalid").addClass("valid");
+                    $("#endX").removeClass("invalid").addClass("valid");
+                    $("#errHR").removeClass("errmsg").addClass("noerr");
+                }
+            }
+        });
     });
     
     $("#startY").on("input", function(){
@@ -63,10 +134,46 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSY").text("Number entered is invalid!").css("display", "inline");
             }
+            startY = startInput;
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eSY").css("display", "inline");
         }
+        
+        // checking input of endY for range check
+        $("#endY").on("input", function(){
+            var startInput = $(this).val();
+            startInput = Number(startInput);
+            // adding or removing error styling and message
+            // based on if field is empty or not
+            if(startInput || $(this).val() === "0") {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eEY").css("display", "none");
+                // checking if user's input is valid integer
+                if(!Number.isSafeInteger(startInput)) {
+                    $(this).removeClass("valid").addClass("invalid");
+                    $("#eEY").text("Number entered is invalid!").css("display", "inline");
+                }
+                endY = startInput;
+            } else {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eEY").css("display", "inline");
+            }
+            
+            // Checking vertical range
+            if(startY && endY) {
+                if(Math.abs(startY - endY) > 1000) {
+                    $("#startY").removeClass("valid").addClass("invalid");
+                    $("#endY").removeClass("valid").addClass("invalid");    
+                    $("#errVR").removeClass("noerr").addClass("errmsg");
+                } else {
+                    $("#startY").removeClass("invalid").addClass("valid");
+                    $("#endY").removeClass("invalid").addClass("valid");
+                    $("#errVR").removeClass("errmsg").addClass("noerr");
+                }
+            }
+        });
+        
     });
     
     $("#endY").on("input", function(){
@@ -82,26 +189,47 @@ $(function(){
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEY").text("Number entered is invalid!").css("display", "inline");
             }
+            endY = startInput;
         } else {
             $(this).removeClass("valid").addClass("invalid");
             $("#eEY").css("display", "inline");
         }
+        
+        // checking startY for range check
+        $("#startY").on("input", function(){
+            var startInput = $(this).val();
+            startInput = Number(startInput);
+            // adding or removing error styling and message
+            // based on if field is empty or not
+            if(startInput || $(this).val() === "0") {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eSY").css("display", "none");
+                // checking if user's input is valid integer
+                if(!Number.isSafeInteger(startInput)) {
+                    $(this).removeClass("valid").addClass("invalid");
+                    $("#eSY").text("Number entered is invalid!").css("display", "inline");
+                }
+                startY = startInput;
+            } else {
+                $(this).removeClass("valid").addClass("invalid");
+                $("#eSY").css("display", "inline");
+            }
+            
+            // Checking vertical range
+            if(startY && endY) {
+                if(Math.abs(startY - endY) > 1000) {
+                    $("#startY").removeClass("valid").addClass("invalid");
+                    $("#endY").removeClass("valid").addClass("invalid");    
+                    $("#errVR").removeClass("noerr").addClass("errmsg");
+                } else {
+                    $("#startY").removeClass("invalid").addClass("valid");
+                    $("#endY").removeClass("invalid").addClass("valid");
+                    $("#errVR").removeClass("errmsg").addClass("noerr");
+                }
+            }
+        });
+        
     });
-    
-    // checking horizontal range
-//    if(startX && endX) {
-//        console.log("StartX: " + startX + "endX: " + endX);
-//        if(Math.abs(startX - endX) > 1000) {
-//            $("#startX").removeClass("valid").addClass("invalid");
-//            $("#endX").removeClass("valid").addClass("invalid");
-//            $("#eSX").css("display", "none");
-//            $("#eEX").text("Horizontal Range is greater than 1000").css("display", "inline");
-//        } else {
-//            $("#startX").removeClass("invalid").addClass("valid");
-//            $("#endX").removeClass("invalid").addClass("valid");
-//            $("#eX").css("display", "none");
-//        }
-//    }
 });
 
  var validateForm = function() {
