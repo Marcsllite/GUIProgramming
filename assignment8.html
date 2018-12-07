@@ -1,0 +1,448 @@
+<!--
+   FILE: https://marcsllite.github.io/GUIProgramming/assignment7.html
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on November 14, 2018 at 8:24 AM
+   Description: This webpages is the 7th assignment from GUI I. 
+   This is the same assignment as assignment 6 except it
+   adds live error detecting using jquery.
+ -->
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script> <!-- using Google JQuery CDN --
+  
+  <link rel="stylesheet" href="css/assign4style.css"> <!-- Linking Stylesheet --
+  <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.9.custom.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+   <script src="development-bundle/jquery-x.x.x,js">
+ </script>
+ <script src="development-bundle/ui/jquery.ui.core.js">
+ </script>
+ <script
+ src="development-bundle/ui/jquery.ui.widget.js">
+ </script>
+ <script src="development-bundle/ui/jquery.ui.tabs.js">
+ </script>
+   <link rel="stylesheet" href="css/tabsTheme.css">
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+
+  <title>GUIAssignment 8: Multiplication Table with UI Sliders and Tab widgets</title> <!-- Adding a title to document tab  -->
+</head>
+<body>
+  <div class = "ui-content" data-role = "page">
+    <div role="main" class="ui-content">
+      <div data-role="tabs">
+        <div class="main-nav" id="myTabs" data-role = "navbar">
+          <ul>
+            <li> <a href="examples">examples</a> </li>
+            <li> <a href="assignment2">Assignment 2</a> </li>
+            <li> <a href="assignment3">Assignment 3</a> </li>
+            <li> <a href="assignment4" >Assignment 4</a> </li>
+            <li> <a href="assignment6">Assignment 6</a> </li>
+            <li> <a href="assignment7">Assignment 7</a> </li>
+            <li> <a href="assignment8" class="ui-btn-active">Assignment 8</a> </li>
+            <li> <a href="assignment9">Assignment 9</a> </li>
+          </ul>
+        </div>
+        <div id="exmples">
+           <hr> <!-- Horizonal line for aesthetics and readibility -->
+           <div class="Tags"> <!-- Container that holds all the information about tags -->
+             <h1 class="sectHead">TAGS:</h1>
+             <p>Before we can get into putting things on the page, first we must talk
+             about tags. Tags are the syntax of html. They tell the computer how you want
+             your text to appear/what kind of text it is. All tags share the same structure.
+             A tag for a particular element can either require an opening and closing tag
+             or just an opening tag. A tag looks like this:</p>
+             <div class="examples">
+                 <p> Opening Tag: &lt;html&gt; <br> <br> Closing Tag: &lt;/html&gt; </p>
+             </div>
+             <p>Now that we know what a tag normally looks like we can start talking about
+             some of the tags we can use in an html document.</p>
+           </div>
+           <hr> <!-- Horizonal line for aesthetics and readibility -->
+           <div class="Headings"> <!-- Container that holds all the information about headings -->
+             <h1 class="sectHead">HEADINGS:</h1>
+             <p>In HTML5 there are 6 different heading sizes you can use. They are numbered
+             from 1-6 and all follow the same pattern to use them. The largest size is
+             heading 1 (&lt;h1&gt;). The rest of the heading follow this same naming convention.
+             (i.e &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;) make a text into a
+             heading all you need to do is encapsulate the desired text in the proper
+             heading tag. Headings require both an opening and closing tag to work properly.
+             If done correctly the end result should look something like this:</p>
+             <div class="examples">
+                 <h1>Heading 1</h1> <h2>Heading 2</h2> <h3>Heading 3</h3>
+                 <h4>Heading 4</h4> <h5>Heading 5</h5> <h6>Heading 6</h6>
+             </div>
+           </div>
+           <hr> <!-- Horizonal line for aesthetics and readibility -->
+           <div class="paragraphs"> <!-- Container to hold all information about the pararaph tags -->
+             <h1 class="sectHead">PARAGRAPHS:</h1>
+             <p>Paragraphs are one of the most used things in an html document. Any text
+             that isn't special in some way is lumped into the paragraph tag. The text you
+             are reading right now is displayed using the paragraph tags. Paragraph tags,
+             similarly to heading tags require an opening tag and closing tag and look
+             like this:</p>
+             <div class="examples"> <!-- Container to hold examples. ID is examples for easy styling -->
+                 <p> Opening Paragraph Tag: &lt;p&gt; <br>
+                  <br> Closing Paragraph Tag: &lt;/p&gt; </p>
+             </div>
+             <p>If you want to make a word or line bold or italicized within a paragraph
+             or anywhere else for that matter there are tags for that. To make a text
+             bold all you have to do is wrap the text around a bold tag (&lt;b&gt;, &lt;/b&gt;).
+             And similarly to make a text italicized you wrap that text around a italics tag
+             (&lt;i&gt;, &lt;/i&gt;)</p>
+             <div class="examples"> <!-- Container to hold examples. ID is examples for easy styling -->
+                 <p> Here's what a <b>bold</b> text looks like. <br>
+                  <br> Here's what an <i>italicized</i> text looks like.</p>
+             </div>
+             <p>A similar thing applied if you need to add super and subscripts to your
+             paragraphs. Just wrap the text you would like to see in that manner in the
+             corresponding tag. (superscript: &lt;sup&gt;, &lt;/sup&gt;;
+             subscript: &lt;sub&gt;, &lt;sub&gt;)</p>
+             <div class="examples"> <!-- Container to hold examples. ID is examples for easy styling -->
+                 <p> Here's what a <sup>superscript</sup> text looks like. <br>
+                  <br> Here's what a <sub>subscript</sub> text looks like.</p>
+             </div>
+             <p>We've covered a few things on paragraphs except maybe one of the most
+             important aspect. Line breaks! What if you want to write a poem or something
+             that requires you to go to the next line on the page. The answer isn't as simple
+             as just pressing enter when writing inside your html document.
+             <p>The extra spaces and newlines you use inside the paragraph tags are not
+             shown on the page. The computer just takes all your words and places them on
+             one line until that line is full. in order to go to a new line you must use
+             a line break tag.</p>
+             <p> This tag, unlike all the other tags we've talked about so far only
+              requires an opening tag.</p>
+             <div class="examples"> <!-- Container to hold examples. ID is examples for easy styling -->
+               <p>Line break tag: &lt;br&gt;</p>
+               <p>Example of using a line <br> break tag in a sentence.</p>
+             </div>
+           </div>
+           <hr> <!-- Horizonal line for aesthetics and readibility -->
+           <!-- Links to the other pages -->
+           <p class="currentPage">Class examples</p>
+           <a href="assignment2.html">Assignment 2</a>
+           <a href="assignment3.html">Assignment 3</a>
+           <a href="index.html">Assignemnt 4</a>
+           <a href="assignment6.html">Assignment 6</a>
+          <a href="assignment7.html">Assignment 7</a>
+          <a href="assignment8.html">Assignment 8</a>
+          <a href="assignment9.html" class="notYet">Assignment 9</a>
+        </div>
+        <div id="assignment2">
+          <div id="Header"> <!-- Container to hold all things relating to the Header  -->
+            <h1>How to create an HTML5 Document</h1>
+            <h3>by: Marc Pierre</h3>
+          </div>
+          <hr> <!-- Horizonal line for aesthetics and readibility -->
+          <div id="AboutMe"> <!-- Container to hold the section that give background   information on me  -->
+            <p>
+            <img id="Headshot" src="img/headshot_1.jpg" alt="Image of Author">
+            <strong>About the author:</strong>
+            Hello! My name is Marc Pierre and I am a computer science major at
+            UMass Lowell. I am a junior and looking to graduate with my bachelor's degree
+            in May 2020. This webpage is going to consist of my prior knowledge of html
+            as well as the teaching in my GUI Programming I course. Along with being
+            educational, all of my examples will help me introduce myself to my classmates
+            and professor. This first page gives a brief overview of the structure of
+            an html document. Please see the links at the bottom of the page for
+            examples and my assignments from class Enjoy! </p>
+          </div>
+          <hr> <!-- Horizonal line for aesthetics and readibility -->
+          <div id="Structure"> <!-- Container to hold the section about the structure of a html document -->
+            <h2 id = structHead>Structure</h2>
+            <p>One of the first things we talked about in GUI I was structure. Everything
+            needs some kind of structure and since html is a markup language
+            (hypertext markup language) it's structure is no different than that of a word
+            document. The structure of a html document consists of:</p>
+
+            <h4 class="structh4">Document Type: &lt;!DOCTYPE html&gt; </h4>
+            <p> At the beginning of any html document you must define the type. In this case
+             &lt;!DOCTYPE&gt; html means the document is using HTML5.</p>
+
+            <h4 class="structh4">HTML and Language:</h4>
+            <p>Right after the type we want to create html tags. This defines the beginning
+              and the end of our html document. But before we can start typing away we must
+              first define the language our document will be written in. This is a pretty
+              big deal for a document that is all text. This can be done simply by
+              adding the attribute "lang" in the opening html tag. (EX: &lt;html lang="en"&gt;).</p>
+
+            <h4 class="structh4">Head Tag:</h4>
+            <p>After the language we want to setup the head of our page. The head is not seen
+            on the physical page if we were to open the document in a web browser but it serves
+            a crucial task. Its job is to set things up so the document works as intended.
+            Between the Head tags the first thing you'll need is the character set of the document.
+            This can be done by adding the &lt;meta charset="utf-8"&gt; tag. After that is
+            included you're all set to start on the body. However if there are stylesheets,
+            meta data, title, or other links and attributes you want to connect to the
+            document you can do so within the head tags.</p>
+
+            <h4 class="structh4">Body Tag:</h4>
+            <p>This is the part that everyone cares about. The body of the document. This
+            is where all the text you see on a webpage lives. This webpage will be going over
+            the tags that you'll find between the body tags and how they make your text look.</p>
+          </div>
+          <hr> <!-- Horizonal line for aesthetics and readibility -->
+          <p> Now that we know the structure of an html document. Let's take a look at some
+          examples. Click on the links below for examples of what I learned in class
+          and my other assignments.</p>
+          <!-- Links to the other pages -->
+          <a href="examples.html">Class examples</a>
+          <p class="currentPage">Assignment 2</p>
+          <a href="assignment3.html">Assignment 3</a>
+          <a href="index.html">Assignemnt 4</a>
+          <a href="assignment6.html">Assignment 6</a>
+          <a href="assignment7.html">Assignment 7</a>
+          <a href="assignment8.html">Assignment 8</a>
+          <a href="assignment9.html" class="notYet">Assignment 9</a>
+        </div>
+        <div id="assignment3">
+          <div id="wrapper">
+            <header>
+                <h1>Pacific Trails Resort</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="yurts.html">Yurts</a>
+                    </li>
+                    <li><a href="activities.html">Activities</a>
+                    </li>
+                    <li><a href="reservations.html">Reservations</a>
+                </ul>
+            </nav>
+            <div id="content">
+                <h2>Enjoy Nature in Luxury</h2>
+                <img src="img/coast.jpg" alt="Pacific Coast">
+                <p><span class="resort">Pacific Trails Resort</span> offers a special lodging experience on the California North Coast. Relax in serenity with panoramic views of the Pacific Ocean.</p>
+                <ul>
+                    <li>Private yurts with decks overlooking the ocean</li>
+                    <li>Activities lodge with fireplace and gift shop</li>
+                    <li>Nightly fine dining at the Overlook Cafe</li>
+                    <li>Heated outdoor pool and whirlpool</li>
+                    <li>Guided hiking tours of the redwoods</li>
+                </ul>
+                <div id="contact">
+                    <span class="resort">Pacific Trails Resort</span>
+                    <br> 12010 Pacific Trails Road
+                    <br> Zephyr, CA 95555
+                    <br>
+                    <br> 888-555-5555
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <footer>
+                Copyright &copy; 2014 Pacific Trails Resort
+                <br>
+                <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+            </footer>
+         </div>
+          <!-- Links to the other pages -->
+          <a href="examples.html" class="navLink">Class examples</a>
+          <a href="assignment2.html" class="navLink">Assignment 2</a>
+          <p class="currentPage">Assignment 3</p>
+          <a href="index.html">Assignemnt 4</a>
+          <a href="assignment6.html">Assignment 6</a>
+          <a href="assignment7.html">Assignment 7</a>
+          <a href="assignment8.html">Assignment 8</a>
+          <a href="assignment9.html" class="notYet">Assignment 9</a>
+        </div>
+        <div id="assignment4">
+          <section class = "introduction">
+            <header class="my-pic">
+              <img src="img/headshot_1.jpg" alt="Image of Author">
+            </header>
+            <div class="info-box">
+              <h1>How to create an HTML5 Document</h1>
+              <h3>by: Marc Pierre</h3>
+              <p><strong>About the author:</strong>
+                  Hello! My name is Marc Pierre and I am a computer science major at
+                  UMass Lowell. I am a junior and looking to graduate with my bachelor's degree
+                  in May 2020. This webpage is going to consist of my prior knowledge of html
+                  as well as the teaching in my GUI Programming I course. Along with being
+                  educational, all of my examples will help me introduce myself to my classmates
+                  and professor. This first page gives a brief overview of the structure of
+                  an html document. Please see the links at the bottom of the page for
+                  examples and my assignments from class Enjoy!</p>
+            </div>
+          </section>
+          <section class="structure">
+            <div>
+              <h2 id = structHead>Structure</h2>
+              <p>One of the first things we talked about in GUI I was structure. Everything
+              needs some kind of structure and since html is a markup language
+              (hypertext markup language) it's structure is no different than that of a word
+              document. The structure of a html document consists of:</p>
+            </div>
+          </section>
+          <section class="boxes">
+            <div class="box">
+              <h4 class="structh4">Document Type: &lt;!DOCTYPE html&gt; </h4>
+              <p> At the beginning of any html document you must define the type. In this case
+               &lt;!DOCTYPE&gt; html means the document is using HTML5.</p>
+            </div>
+            <div class="box">
+               <h4 class="structh4">HTML and Language:</h4>
+              <p>Right after the type we want to create html tags. This defines the beginning
+                and the end of our html document. But before we can start typing away we must
+                first define the language our document will be written in. This is a pretty
+                big deal for a document that is all text. This can be done simply by
+                adding the attribute "lang" in the opening html tag. (EX: &lt;html lang="en"&gt;).</p>
+            </div>
+            <div class="box">
+              <h4 class="structh4">Head Tag:</h4>
+              <p>After the language we want to setup the head of our page. The head is not seen
+              on the physical page if we were to open the document in a web browser but it serves
+              a crucial task. Its job is to set things up so the document works as intended.
+              Between the Head tags the first thing you'll need is the character set of the document.
+              This can be done by adding the &lt;meta charset="utf-8"&gt; tag. After that is
+              included you're all set to start on the body. However if there are stylesheets,
+              meta data, title, or other links and attributes you want to connect to the
+              document you can do so within the head tags.</p>
+            </div>
+            <div class="box">
+              <h4 class="structh4">Body Tag:</h4>
+              <p>This is the part that everyone cares about. The body of the document. This
+              is where all the text you see on a webpage lives. This webpage will be going over
+              the tags that you'll find between the body tags and how they make your text look.</p>
+            </div>
+          </section>
+          <footer>
+            <ul>
+              <li><a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img class = "valid"
+                    src="http://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="Valid CSS!" /></a>
+                    </li>
+              <li><a href="http://jigsaw.w3.org/css-validator/check/referer">
+              <img class = "valid"
+              src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+              alt="Valid CSS!" /></a>
+              </li>
+            </ul>
+          </footer>  
+        </div>
+        <div id="assignment6">
+          <section class="Description">
+            <div class="instr">
+              <h1>Welcome to my Multiplication Table Generator</h1>
+              <p><strong>Directons:</strong> Enter the start  and end number of both the 
+              horizonal and vertical axis of the table (labels on form). A table will be 
+              generated below the form where every cell in the table contains the product 
+              of the first horizontal cell and the first vertical cell.</p>
+              <p><strong>Restrictions:</strong> <br>
+              Each number can be between 9,007,199,254,740,991 and -9,007,199,254,740,991. <br>
+              Horizontal and Vertical Ranges must be within 1000. <br> <br> Example: Start Number (Horizontal): 1249, End Number (Horizontal): 300 (1249 - 300 = 949)
+              </p>
+            </div>
+          </section>
+          <section class="form">
+            <form id="myForm" action="#" >
+            <label for="startX">Start Number (Horizontal):</label> 
+            <input type="number" name="startX" required><br>
+            <label for="endx">End Number (Horizontal):</label> 
+            <input type="number" name="endX" required><br>
+            <label for="startY">Start Number (Vertical):</label> 
+            <input type="number" name="startY" required><br>
+            <label for="endY">End Number (Verical):</label> 
+            <input type="number" name="endY" required><br>
+            <input type="submit" value="Submit" id="btnSubmit">
+          </form>
+        </section>
+          <section class="table">
+            <table id="myTable">
+            </table>
+          </section>
+        </div>
+        <div id="assignment7">
+            <section class="Description">
+            <div class="instr">
+              <h1>Welcome to my Multiplication Table Generator V2.0 (with Live Error Messages)</h1>
+              <p><strong>Directons:</strong> Enter the start  and end number of both the 
+              horizonal and vertical axis of the table (labels on form). A table will be 
+              generated below the form where every cell in the table contains the product 
+              of the first horizontal cell and the first vertical cell.</p>
+              <p><strong>Restrictions:</strong> <br>
+              Each number can be between 9,007,199,254,740,991 and -9,007,199,254,740,991. <br>
+              Horizontal and Vertical Ranges must be within 1000. <br> <br> Example: Start Number (Horizontal): 1249, End Number (Horizontal): 300 (1249 - 300 = 949)
+              </p>
+            </div>
+            </section>
+            <section class="form">
+              <form id="myForm" action="#" >
+              <span class="noerr" id="errHR">Horizontal Range is greater than 1000</span><br>
+              <span class="noerr" id="errVR">Vertical Range is greater than 1000</span><br>
+              <label for="startX">Start Number (Horizontal):</label>
+              <input type="number" name="startX" id="startX" class="invalid" required>
+              <span class="errmsg" id="eSX">This field is required!</span><br>
+              <label for="endx">End Number (Horizontal):</label> 
+              <input type="number" name="endX" id="endX" class="invalid" required>
+              <span class="errmsg" id="eEX">This field is required!</span><br>
+              <label for="startY">Start Number (Vertical):</label> 
+              <input type="number" name="startY" id="startY" class="invalid" required>
+              <span class="errmsg" id="eSY">This field is required!</span><br>
+              <label for="endY">End Number (Verical):</label> 
+              <input type="number" name="endY" id="endY" class="invalid" required>
+              <span class="errmsg" id="eEY">This field is required!</span><br>
+              <input type="submit" value="Submit" id="btnSubmit">
+            </form>
+          </section>
+            <section class="table">
+              <table id="myTable">
+              </table>
+            </section>
+        </div>
+        <div id="assignment8">
+          <section class="Description">
+          <div class="instr">
+            <h1>Welcome to my Multiplication Table Generator V3.0 (with Sliders)</h1>
+            <p><strong>Directons:</strong> Enter the start  and end number of both the 
+            horizonal and vertical axis of the table (labels on form). A table will be 
+            generated below the form where every cell in the table contains the product 
+            of the first horizontal cell and the first vertical cell.</p>
+            <p><strong>Restrictions:</strong> <br>
+              Each number can be between 9,007,199,254,740,991 and -9,007,199,254,740,991. <br>
+              Horizontal and Vertical Ranges must be within 1000. <br> <br> Example: Start Number (Horizontal): 1249, End Number (Horizontal): 300 (1249 - 300 = 949)
+            </p>
+          </div>
+        </section>
+        <section class="form">
+          <form id="myForm" action="#" >
+            <span class="noerr" id="errHR">Horizontal Range is greater than 1000</span><br>
+            <span class="noerr" id="errVR">Vertical Range is greater than 1000</span><br>
+            <label for="startX">Start Number (Horizontal):</label>
+            <input type="number" name="startX" id="startX" class="invalid" required>
+            <span class="errmsg" id="eSX">This field is required!</span><br>
+            <label for="endx">End Number (Horizontal):</label> 
+            <input type="number" name="endX" id="endX" class="invalid" required>
+            <span class="errmsg" id="eEX">This field is required!</span><br>
+            <label for="startY">Start Number (Vertical):</label> 
+            <input type="number" name="startY" id="startY" class="invalid" required>
+            <span class="errmsg" id="eSY">This field is required!</span><br>
+            <label for="endY">End Number (Verical):</label> 
+            <input type="number" name="endY" id="endY" class="invalid" required>
+            <span class="errmsg" id="eEY">This field is required!</span><br>
+            <input type="submit" value="Submit" id="btnSubmit">
+          </form>
+        </section>
+        <section class="table">
+          <table id="myTable">
+          </table>
+        </section>
+        </div>
+        <div id="assignmnet9"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> <!-- linking jquery file -->
+</body>
+</html>
+
