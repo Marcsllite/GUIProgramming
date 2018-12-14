@@ -8,7 +8,7 @@
  */
 html{
 	background-color: #00569f;
-	background: url(../img/ptrbackground.jpg);
+	background: url(../images/ptrbackground.jpg);
 }
 
 h1, h2 {
@@ -48,14 +48,14 @@ nav ul {
 }
 
 #content ul {
-	list-style-image: url(../img/marker.gif);
+	list-style-image: url(../images/marker.gif);
 	list-style-position: inside;
 }
 
 header {
 	grid-area: header;
 	background-color: black;
-	background-image: url(../img/sunset.jpg);
+	background-image: url(../images/sunset.jpg);
 	background-size: 100% 100%;
 	background-position: right;
 	height: 50px;

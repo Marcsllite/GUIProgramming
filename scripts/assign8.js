@@ -11,9 +11,6 @@
    https://formden.com/blog/validate-contact-form-jquery
 */
 "use strict";
-$(function($){
-    $("#myTabs").tabs({active: 1});
- });
 
 $(function(){
     var startX, endX, startY, endY;
