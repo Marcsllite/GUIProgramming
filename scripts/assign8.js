@@ -11,13 +11,105 @@
    https://formden.com/blog/validate-contact-form-jquery
 */
 "use strict";
-$("#startXSlide").slider();
-$("#endXSlide").slider();
-$("#startYSlide").slider();
-$("#endYSlide").slider();
 
 $(function(){
     var startX, endX, startY, endY;
+    var $startXSlide = $("#startXSlide");
+    var $endXSlide = $("#endXSlide");
+    var $startYSlide = $("#startYSlide");
+    var $endYSlide = $("#endYSlide");
+
+//   //Get min and max values
+//   var minNum = "-9007199254740991",
+//       maxNum = "9007199254740991";
+//
+//	$("#startX").attr({
+//		"value": "1"
+//	});
+//    $("#endX").attr({
+//		"value": "1"
+//	});
+//    $("#startY").attr({
+//		"value": "1"
+//	});
+//    $("#endY").attr({
+//		"value": "1"
+//	});
+//
+//    $startXSlide.slider({
+//      range: true,
+//      min: minNum,
+//      max: maxNum,
+//      values: [minNum, maxNum],
+//      slide: function(event, ui) {
+//         $("#startX").val(ui.values);
+//      }
+//    });
+//    $endXSlide.slider({
+//      range: true,
+//      min: minNum,
+//      max: maxNum,
+//      values: [minNum, maxNum],
+//      slide: function(event, ui) {
+//         $("#startX").val(ui.values);
+//      }
+//    });
+//    $startYSlide.slider({
+//      range: true,
+//      min: minNum,
+//      max: maxNum,
+//      values: [minNum, maxNum],
+//      slide: function(event, ui) {
+//         $("#startX").val(ui.values);
+//      }
+//    });
+//    $endYSlide.slider({
+//      range: true,
+//      min: minNum,
+//      max: maxNum,
+//      values: [minNum, maxNum],
+//      slide: function(event, ui) {
+//         $("#startX").val(ui.values);
+//      }
+//    });
+//
+//	// Amount is a read only field for textual representation of the range
+//   //$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+//
+//	//this code was an attempt to stop entering wrong values - but I think this is better ux...
+//	// $("#price-filter-min, #price-filter-max").map(function(){
+//		// $(this).on("keypress", function(e) {
+//		// 	if ($(this).val() > priceMax && e.keyCode != 46 && e.keyCode != 8) {
+//		// 		// e.preventDefault();
+//		// 		$(this).val(priceMax);
+//		// 	} else if ($(this).val() < priceMin && e.keyCode != 46 && e.keyCode != 8) {
+//		// 		// e.preventDefault();
+//		// 		$(this).val(priceMin);
+//		// 	}
+//		// });
+//	// });
+//
+//	$("#startX").map(function(){
+//		$(this).on("input", function() {
+//			// let pmin = $("#price-filter-min").val(),
+//			// 	 pmax = $("#price-filter-max").val();
+//			// if(
+//			// 	pmin >= priceMin //bigger than min
+//			// 	&& pmin <= pmax && pmax <= priceMax //smaller than max
+//			// ) {
+//			// 	updateSlider();
+//			// }
+//			updateSlider();
+//		});
+//	});
+//	function updateSlider(){
+//		$slider.slider("values", [$("#price-filter-min").val(), $("#price-filter-max").val()]);
+//	}
+    $startXSlide.slider();
+    $endXSlide.slider();
+    $startYSlide.slider();
+    $endYSlide.slider();
+
     $("#startX").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
@@ -30,6 +122,10 @@ $(function(){
             if(!Number.isSafeInteger(startInput)) {
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSX").text("Number entered is invalid!").css("display", "inline");
+            }
+            else {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eSX").css("display", "none");
             }
             startX = startInput;
         } else {
@@ -50,6 +146,9 @@ $(function(){
                 if(!Number.isSafeInteger(startInput)) {
                     $(this).removeClass("valid").addClass("invalid");
                     $("#eEX").text("Number entered is invalid!").css("display", "inline");
+                } else {
+                    $(this).removeClass("invalid").addClass("valid");
+                    $("#eEX").css("display", "none");
                 }
                 endX = startInput;
             } else {
@@ -84,6 +183,9 @@ $(function(){
             if(!Number.isSafeInteger(startInput)) {
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEX").text("Number entered is invalid!").css("display", "inline");
+            } else {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eEX").css("display", "none");
             }
             endX = startInput;
         } else {
@@ -104,6 +206,9 @@ $(function(){
                 if(!Number.isSafeInteger(startInput)) {
                     $(this).removeClass("valid").addClass("invalid");
                     $("#eSX").text("Number entered is invalid!").css("display", "inline");
+                } else {
+                    $(this).removeClass("invalid").addClass("valid");
+                    $("#eSX").css("display", "none");
                 }
                 startX = startInput;
             } else {
@@ -138,6 +243,9 @@ $(function(){
             if(!Number.isSafeInteger(startInput)) {
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eSY").text("Number entered is invalid!").css("display", "inline");
+            } else {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eSY").css("display", "none");
             }
             startY = startInput;
         } else {
@@ -158,6 +266,9 @@ $(function(){
                 if(!Number.isSafeInteger(startInput)) {
                     $(this).removeClass("valid").addClass("invalid");
                     $("#eEY").text("Number entered is invalid!").css("display", "inline");
+                } else {
+                    $(this).removeClass("invalid").addClass("valid");
+                    $("#eEY").css("display", "none");
                 }
                 endY = startInput;
             } else {
@@ -193,6 +304,9 @@ $(function(){
             if(!Number.isSafeInteger(startInput)) {
                 $(this).removeClass("valid").addClass("invalid");
                 $("#eEY").text("Number entered is invalid!").css("display", "inline");
+            } else {
+                $(this).removeClass("invalid").addClass("valid");
+                $("#eEY").css("display", "none");
             }
             endY = startInput;
         } else {
@@ -213,6 +327,9 @@ $(function(){
                 if(!Number.isSafeInteger(startInput)) {
                     $(this).removeClass("valid").addClass("invalid");
                     $("#eSY").text("Number entered is invalid!").css("display", "inline");
+                } else {
+                    $(this).removeClass("invalid").addClass("valid");
+                    $("#eSY").css("display", "none");
                 }
                 startY = startInput;
             } else {
@@ -317,15 +434,22 @@ $(function(){
   
     // values are in variables and ranges are less than or equal to 100,000
     // calling create table with those variables
-    createtable(startX, endX, startY, endY);
-    return;
+     // making sure all inputs are valid before making table
+    if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+        $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")){
+        alert("One or more inputs are invalid");
+        return;
+    } else {
+        createtable(startX, endX, startY, endY);
+        return;
+    }
 }
 
 var createtable = function(startX, endX, startY, endY) {
     var hRange  = [], // creating an array to hold the Horizontal Range
         vRange = [],  // creating an array to hold the Vertical Range
         i;
-  
+
     // Adding the numbers to the arrays
     // Checking if horizontal range is in descending order and vertical range is in ascending order
     if (startX > endX && startY < endY) { 

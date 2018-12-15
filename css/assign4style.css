@@ -88,6 +88,24 @@ a.notYet {
     margin: auto;
 }
 
+.ui-slider {
+	font-size: 0.6em;
+	width: calc(100% - 2.4em);
+	margin-left: 1.2em;
+
+
+}
+
+/* Slider-handle gold, square and bigger*/
+.ui-slider-handle {
+		background-color: #ffd434;
+		background-blend-mode: multiply;
+		font-size: 2em;
+		margin-top: -3px;
+		border-radius: 1px;
+		border-color: #eac127;
+}
+
 /*Mult table form*/
 input[type=number]{
     width: 25%;

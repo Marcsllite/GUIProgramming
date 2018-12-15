@@ -320,7 +320,13 @@ var createtable = function(startX, endX, startY, endY) {
     var hRange  = [], // creating an array to hold the Horizontal Range
         vRange = [],  // creating an array to hold the Vertical Range
         i;
-  
+
+    if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+        $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")){
+        alert("One or more inputs are invalid");
+        return;
+    }
+
     // Adding the numbers to the arrays
     // Checking if horizontal range is in descending order and vertical range is in ascending order
     if (startX > endX && startY < endY) { 
