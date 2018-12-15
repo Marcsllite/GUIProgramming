@@ -11,6 +11,10 @@
    https://formden.com/blog/validate-contact-form-jquery
 */
 "use strict";
+$("#startXSlide").slider();
+$("#endXSlide").slider();
+$("#startYSlide").slider();
+$("#endYSlide").slider();
 
 $(function(){
     var startX, endX, startY, endY;
