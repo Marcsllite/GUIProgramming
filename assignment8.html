@@ -15,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- using Google JQuery CDN -->
   <link rel="stylesheet" href="css/assign4style.css"> <!-- Linking Stylesheet -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
   <title>GUIAssignment 8: Multiplication Table with tabs and sliders</title> <!-- Adding a title to document tab  -->
 </head>
 <body>
@@ -26,7 +27,7 @@
         <li> <a href="assignment3.html">Assignment 3</a> </li>
         <li> <a href="index.html" >Assignment 4</a> </li>
         <li> <a href="assignment6.html">Assignment 6</a> </li>
-        <li> <a href="assignment8.html">Assignment 7</a> </li>
+        <li> <a href="assignment7.html">Assignment 7</a> </li>
         <li> <a href="#" class="currentPage">Assignment 8</a> </li>
         <li> <a href="assignment9.html" class="notYet">Assignment 9</a> </li>
       </ul>
@@ -49,15 +50,23 @@
         <span class="noerr" id="errHR">Horizontal Range is greater than 1000</span><br>
         <span class="noerr" id="errVR">Vertical Range is greater than 1000</span><br>
         <label for="startX">Start Number (Horizontal):</label>
+        <div id="startXSlide">
+        </div>
         <input type="number" name="startX" id="startX" class="invalid" required>
         <span class="errmsg" id="eSX">This field is required!</span><br>
-        <label for="endx">End Number (Horizontal):</label> 
+        <label for="endx">End Number (Horizontal):</label>
+        <div id="endXSlide">
+        </div>
         <input type="number" name="endX" id="endX" class="invalid" required>
         <span class="errmsg" id="eEX">This field is required!</span><br>
-        <label for="startY">Start Number (Vertical):</label> 
+        <label for="startY">Start Number (Vertical):</label>
+        <div id="startYSlide">
+        </div>
         <input type="number" name="startY" id="startY" class="invalid" required>
         <span class="errmsg" id="eSY">This field is required!</span><br>
-        <label for="endY">End Number (Verical):</label> 
+        <label for="endY">End Number (Verical):</label>
+        <div id="endYSlide">
+        </div>
         <input type="number" name="endY" id="endY" class="invalid" required>
         <span class="errmsg" id="eEY">This field is required!</span><br>
         <input type="submit" value="Submit" id="btnSubmit">
@@ -68,6 +77,8 @@
       </table>
     </section>
   </div>
+  <script src="scripts/external/jquery/jquery.js"></script>
+  <script src="scripts/jquery-ui.js"></script>
   <script src="scripts/assign8.js"></script> <!-- linking jquery file -->
 </body>
 </html>
