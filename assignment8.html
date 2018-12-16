@@ -42,12 +42,14 @@
       <div class="instr">
         <h1>Welcome to my Multiplication Table Generator V3.0 (with tabs and sliders)</h1>
         <p><strong>Directons:</strong> Enter the start  and end number of both the 
-        horizonal and vertical axis of the table (labels on form). A table will be 
+        horizonal and vertical axis of the table (labels on form). A table will automatically be
         generated below the form where every cell in the table contains the product 
         of the first horizontal cell and the first vertical cell.</p>
         <p><strong>Restrictions:</strong> <br>
-          Each number can be between 9,007,199,254,740,991 and -9,007,199,254,740,991. <br>
-          Horizontal and Vertical Ranges must be within 1000. <br> <br> Example: Start Number (Horizontal): 1249, End Number (Horizontal): 300 (1249 - 300 = 949)
+          Each number can be between -1000 and 1000. <br>
+          You can also use the silders to change your values <br>
+          Horizontal and Vertical Ranges must be within 1000. <br>
+          <br> Example: Start Number (Horizontal): 1000, End Number (Horizontal): 125 (1000 - 125 = 875)
         </p>
       </div>
     </section>
@@ -59,24 +61,30 @@
         <label for="startX">Start Number (Horizontal):</label>
         <input type="number" name="startX" id="startX" class="invalid" required>
         <span class="errmsg" id="eSX">This field is required!</span><br>
-        <div id="startXSlide"></div><br>
+        <div id="startXSlide" class="slider"></div><br>
 
         <label for="endx">End Number (Horizontal):</label>
         <input type="number" name="endX" id="endX" class="invalid" required>
         <span class="errmsg" id="eEX">This field is required!</span><br>
-        <div id="endXSlide"></div><br>
+        <div id="endXSlide" class="slider"></div><br>
 
         <label for="startY">Start Number (Vertical):</label>
         <input type="number" name="startY" id="startY" class="invalid" required>
         <span class="errmsg" id="eSY">This field is required!</span><br>
-        <div id="startYSlide"></div><br>
+        <div id="startYSlide" class="slider"></div><br>
 
         <label for="endY">End Number (Verical):</label>
         <input type="number" name="endY" id="endY" class="invalid" required>
         <span class="errmsg" id="eEY">This field is required!</span><br>
-        <div id="endYSlide"></div><br>
+        <div id="endYSlide" class="slider"></div><br>
         <input type="submit" value="Submit" id="btnSubmit">
       </form>
+    </section>
+    <section id="tabManip">
+        <input id="removeAll" type="button" value=" Close all tabs">
+        <input id="removeOther" type="button" value="Close other tabs">
+        <input id="removeRight" type="button" value="Close tabs to right">
+        <input id="removeLeft" type="button" value="Close tabs to left">
     </section>
     <section class="table">
       <table id="myTable">

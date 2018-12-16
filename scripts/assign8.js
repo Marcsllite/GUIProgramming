@@ -19,98 +19,80 @@ $(function(){
     var $startYSlide = $("#startYSlide");
     var $endYSlide = $("#endYSlide");
 
-//   //Get min and max values
-//   var minNum = "-9007199254740991",
-//       maxNum = "9007199254740991";
-//
-//	$("#startX").attr({
-//		"value": "1"
-//	});
-//    $("#endX").attr({
-//		"value": "1"
-//	});
-//    $("#startY").attr({
-//		"value": "1"
-//	});
-//    $("#endY").attr({
-//		"value": "1"
-//	});
-//
-//    $startXSlide.slider({
-//      range: true,
-//      min: minNum,
-//      max: maxNum,
-//      values: [minNum, maxNum],
-//      slide: function(event, ui) {
-//         $("#startX").val(ui.values);
-//      }
-//    });
-//    $endXSlide.slider({
-//      range: true,
-//      min: minNum,
-//      max: maxNum,
-//      values: [minNum, maxNum],
-//      slide: function(event, ui) {
-//         $("#startX").val(ui.values);
-//      }
-//    });
-//    $startYSlide.slider({
-//      range: true,
-//      min: minNum,
-//      max: maxNum,
-//      values: [minNum, maxNum],
-//      slide: function(event, ui) {
-//         $("#startX").val(ui.values);
-//      }
-//    });
-//    $endYSlide.slider({
-//      range: true,
-//      min: minNum,
-//      max: maxNum,
-//      values: [minNum, maxNum],
-//      slide: function(event, ui) {
-//         $("#startX").val(ui.values);
-//      }
-//    });
-//
-//	// Amount is a read only field for textual representation of the range
-//   //$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-//
-//	//this code was an attempt to stop entering wrong values - but I think this is better ux...
-//	// $("#price-filter-min, #price-filter-max").map(function(){
-//		// $(this).on("keypress", function(e) {
-//		// 	if ($(this).val() > priceMax && e.keyCode != 46 && e.keyCode != 8) {
-//		// 		// e.preventDefault();
-//		// 		$(this).val(priceMax);
-//		// 	} else if ($(this).val() < priceMin && e.keyCode != 46 && e.keyCode != 8) {
-//		// 		// e.preventDefault();
-//		// 		$(this).val(priceMin);
-//		// 	}
-//		// });
-//	// });
-//
-//	$("#startX").map(function(){
-//		$(this).on("input", function() {
-//			// let pmin = $("#price-filter-min").val(),
-//			// 	 pmax = $("#price-filter-max").val();
-//			// if(
-//			// 	pmin >= priceMin //bigger than min
-//			// 	&& pmin <= pmax && pmax <= priceMax //smaller than max
-//			// ) {
-//			// 	updateSlider();
-//			// }
-//			updateSlider();
-//		});
-//	});
-//	function updateSlider(){
-//		$slider.slider("values", [$("#price-filter-min").val(), $("#price-filter-max").val()]);
-//	}
-    $startXSlide.slider();
-    $endXSlide.slider();
-    $startYSlide.slider();
-    $endYSlide.slider();
+    $startXSlide.slider({
+        value: -1000,
+        min: -1000,
+        max: 1000,
+        slide: function(event, ui) {
+            $("#startX").val(ui.value).trigger("change");
+            $("#startX").removeClass("invalid").addClass("valid");
+            $("#eSX").css("display", "none");
+            console.log($("#startX").val());
+        },
+        change: function(event, ui) {
+            // checking if all inputs are valid
+            if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+               $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")) {
+                //updateActiveTab(form);  // updating the active tab
+            }
+        }
+    });
 
-    $("#startX").on("input", function(){
+    $endXSlide.slider({
+        value: -1000,
+        min: -1000,
+        max: 1000,
+        slide: function(event, ui) {
+            $("#endX").val(ui.value).trigger("change");
+            $("#endX").removeClass("invalid").addClass("valid");
+            $("#eEX").css("display", "none");
+        },
+        change: function(event, ui) {
+            // checking if all inputs are valid
+            if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+               $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")) {
+                //updateActiveTab(form);  // updating the active tab
+            }
+        }
+    });
+
+    $startYSlide.slider({
+        value: -1000,
+        min: -1000,
+        max: 1000,
+        slide: function(event, ui) {
+            $("#startY").val(ui.value).trigger("change");
+            $("#startY").removeClass("invalid").addClass("valid");
+            $("#eSY").css("display", "none");
+        },
+        change: function(event, ui) {
+            // checking if all inputs are valid
+            if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+               $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")) {
+                //updateActiveTab(form);  // updating the active tab
+            }
+        }
+    });
+
+    $endYSlide.slider({
+        value: -1000,
+        min: -1000,
+        max: 1000,
+        slide: function(event, ui) {
+            $("#endY").val(ui.value).trigger("change");
+            $("#endY").removeClass("invalid").addClass("valid");
+            $("#eEY").css("display", "none");
+        },
+        change: function(event, ui) {
+            // checking if all inputs are valid
+            if($("#startX").hasClass("invalid") || $("#endX").hasClass("invalid") ||
+               $("#startY").hasClass("invalid") || $("#endY").hasClass("invalid")) {
+                //updateActiveTab(form);  // updating the active tab
+            }
+        }
+    });
+
+    $("#startX").on("change", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
         // adding or removing error styling and message
@@ -171,7 +153,7 @@ $(function(){
         });
     });
     
-    $("#endX").on("input", function(){
+    $("#endX").on("change", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
         // adding or removing error styling and message
@@ -231,7 +213,7 @@ $(function(){
         });
     });
     
-    $("#startY").on("input", function(){
+    $("#startY").on("change", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
         // adding or removing error styling and message
@@ -292,7 +274,7 @@ $(function(){
         
     });
     
-    $("#endY").on("input", function(){
+    $("#endY").on("change", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
         // adding or removing error styling and message
@@ -354,7 +336,7 @@ $(function(){
     });
 });
 
- var validateForm = function() {
+var validateForm = function() {
     event.preventDefault();
     // getting values from the form
     var startX = document.getElementById("myForm").elements.startX.value, 
@@ -370,55 +352,56 @@ $(function(){
     startY = Number(startY);
     endY = Number(endY);
   
-    // Checking if the number from the form was obtained and is a safe Integer, 
-    // if not message send to console and user is alerted
-    if (!Number.isSafeInteger(startX)) {
-        if (startX > 0) {
-            console.log("StartX: " + startX + "; StartX is greater than 9007199254740991");
-            alert("The value in 'Start Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
-            return;
-        } else {
-            console.log("StartX: " + startX + "; StartX is less than -9007199254740990");
-            alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
-            return;
-        }
-    }
-    
-    if (!Number.isSafeInteger(endX)) {
-        if (endX > 0) {
-            console.log("EndX: " + endX + "; EndX is greater than 9007199254740991");
-            alert("The value in 'End Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
-            return;
-        } else {
-            console.log("EndX: " + endX + "; EndX is less than -9007199254740990");
-            alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
-            return;
-        }
-    }
-    
-    if (!Number.isSafeInteger(startY)) {
-        if (startY > 0) {
-            console.log("StartY: " + startY + "; StartY is greater than 9007199254740991");
-            alert("The value in 'Start Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
-            return;
-        } else {
-            console.log("StartY: " + startY + "; StartY is less than -9007199254740990");
-            alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
-            return;
-        }
-    }
-    
-    if (!Number.isSafeInteger(endY)) {
-        if (endY > 0) {
-            console.log("EndY: " + endY + "; EndY is greater than 9007199254740991");
-            alert("The value in 'End Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
-            return;
-        } else {
-            console.log("EndY: " + endY + "; EndY is less than -9007199254740990");
-            alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
-            return;
-        }
-    }
+    // Assignment 7 No longer need to check becuase values go from -1,000 to 1,000
+//    // Checking if the number from the form was obtained and is a safe Integer,
+//    // if not message send to console and user is alerted
+//    if (!Number.isInteger(startX)) {
+//        if (startX > 0) {
+//            console.log("StartX: " + startX + "; StartX is greater than 9007199254740991");
+//            alert("The value in 'Start Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
+//            return;
+//        } else {
+//            console.log("StartX: " + startX + "; StartX is less than -9007199254740990");
+//            alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
+//            return;
+//        }
+//    }
+//
+//    if (!Number.isInteger(endX)) {
+//        if (endX > 0) {
+//            console.log("EndX: " + endX + "; EndX is greater than 9007199254740991");
+//            alert("The value in 'End Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
+//            return;
+//        } else {
+//            console.log("EndX: " + endX + "; EndX is less than -9007199254740990");
+//            alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
+//            return;
+//        }
+//    }
+//
+//    if (!Number.isInteger(startY)) {
+//        if (startY > 0) {
+//            console.log("StartY: " + startY + "; StartY is greater than 9007199254740991");
+//            alert("The value in 'Start Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
+//            return;
+//        } else {
+//            console.log("StartY: " + startY + "; StartY is less than -9007199254740990");
+//            alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
+//            return;
+//        }
+//    }
+//
+//    if (!Number.isInteger(endY)) {
+//        if (endY > 0) {
+//            console.log("EndY: " + endY + "; EndY is greater than 9007199254740991");
+//            alert("The value in 'End Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
+//            return;
+//        } else {
+//            console.log("EndY: " + endY + "; EndY is less than -9007199254740990");
+//            alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
+//            return;
+//        }
+//    }
     
     // Making sure range is not too big. Alerting user if they need to change the range (for speed of page)
     if (Math.abs(startX - endX) > 1000 || Math.abs(startY - endY) > 1000) {
