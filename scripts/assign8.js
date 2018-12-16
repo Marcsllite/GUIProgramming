@@ -22,7 +22,7 @@ $(function(){
     var ul = tabs.find("ul");  // variable to access tabHeads
     var id = 0;  // variable to give each new tab a unique id
     var numTabs = 0;  // variable to hold how many tabs there are currently
-    var activeIndex  = -1, activeTabId = -1;  // index and id of current active tab
+    var activeIndex  = -1, activeTabId;  // index and id of current active tab
 
     $startXSlide.slider({
         value: -1000,
@@ -51,7 +51,7 @@ $(function(){
             // checking if all inputs are valid
             if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
                $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
-//               dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+               dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
             }
         }
     });
@@ -83,7 +83,7 @@ $(function(){
             // checking if all inputs are valid
             if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
                $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
-//                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
             }
         }
     });
@@ -115,7 +115,7 @@ $(function(){
             // checking if all inputs are valid
             if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
                $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
-//                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
             }
         }
     });
@@ -147,7 +147,7 @@ $(function(){
             // checking if all inputs are valid
             if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
                $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
-//                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
             }
         }
     });
@@ -687,57 +687,6 @@ $(function(){
         startY = Number(startY);
         endY = Number(endY);
 
-        // Assignment 7 No longer need to check becuase values go from -1,000 to 1,000
-        //    // Checking if the number from the form was obtained and is a safe Integer,
-        //    // if not message send to console and user is alerted
-        //    if (!Number.isInteger(startX)) {
-        //        if (startX > 0) {
-        //            console.log("StartX: " + startX + "; StartX is greater than 9007199254740991");
-        //            alert("The value in 'Start Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
-        //            return;
-        //        } else {
-        //            console.log("StartX: " + startX + "; StartX is less than -9007199254740990");
-        //            alert("The value in 'Start Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
-        //            return;
-        //        }
-        //    }
-        //
-        //    if (!Number.isInteger(endX)) {
-        //        if (endX > 0) {
-        //            console.log("EndX: " + endX + "; EndX is greater than 9007199254740991");
-        //            alert("The value in 'End Number (Horizontal)' is greater than the maximum safe number (9,007,199,254,740,991).");
-        //            return;
-        //        } else {
-        //            console.log("EndX: " + endX + "; EndX is less than -9007199254740990");
-        //            alert("The value in 'End Number (Horizontal)' is less than the minimum safe number (-9,007,199,254,740,991).");
-        //            return;
-        //        }
-        //    }
-        //
-        //    if (!Number.isInteger(startY)) {
-        //        if (startY > 0) {
-        //            console.log("StartY: " + startY + "; StartY is greater than 9007199254740991");
-        //            alert("The value in 'Start Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
-        //            return;
-        //        } else {
-        //            console.log("StartY: " + startY + "; StartY is less than -9007199254740990");
-        //            alert("The value in 'Start Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
-        //            return;
-        //        }
-        //    }
-        //
-        //    if (!Number.isInteger(endY)) {
-        //        if (endY > 0) {
-        //            console.log("EndY: " + endY + "; EndY is greater than 9007199254740991");
-        //            alert("The value in 'End Number (Vertical)' is greater than the maximum safe number (9,007,199,254,740,991).");
-        //            return;
-        //        } else {}
-        //            console.log("EndY: " + endY + "; EndY is less than -9007199254740990");
-        //            alert("The value in 'End Number (Vertical)' is less than the minimum safe number (-9,007,199,254,740,991).");
-        //            return;
-        //        }
-        //    }
-
         // Making sure range is not too big. Alerting user if they need to change the range (for speed of page)
         if (Math.abs(startX - endX) > 1000 || Math.abs(startY - endY) > 1000) {
             alert("One of the Ranges (End Number - Start Number) is greater than 1,000." +
@@ -761,22 +710,23 @@ $(function(){
     }
 
     var dynamicUpdate = function(startX, endX, startY, endY) {
-        if( activeIndex === -1 ) {  // if there is no active tab index (no tab)
-            createTab(id, startX, endX, startY, endY);  // create a tab
+        if( numTabs == 0 ) {  // if there is no active tab index (no tab)
+            createTab(0, Number(startX), Number(endX), Number(startY), Number(endY));  // create a tab
+            id++;
         } else {  // else there was an activeIndex
-            var tabHandle = ul.find('li').eq(activeIndex);
-            var tabTitleHolder = ul.find('a');
+            var li = ul.find('li').eq(activeIndex);
+            var tabTitleHolder = li.find('a');
             var tabContentHolder = $(tabTitleHolder.attr('href'));
 
             //Build the tab title
-            var tabTitle = "H: (" + startX + ") - (" + endX +
-                               ") V: (" + startY + ") - (" + endY + ")";
+            var tabTitle = "H: (" + Number(startX) + ") - (" + Number(endX) +
+                               ") V: (" + Number(startY) + ") - (" + Number(endY) + ")";
 
             tabTitleHolder[0].innerHTML = tabTitle;
 
             //Add the contents to the content holder
-            var table = createtable(startX, endX, startY, endY);
-            var tableId = document.getElementById(table.id);
+            var table = createtable(Number(startX), Number(endX), Number(startY), Number(endY));
+            var tableId = document.getElementById(activeTabId);
             $(tabContentHolder[0]).empty();  // removing previous table
 
             if(tableId && tableId.parentNode === tabContentHolder[0]) {
@@ -826,7 +776,7 @@ $(function(){
             numTabs++;
 
             //Select the new tab
-            var index = ul.find('li').length-1;
+            var index = ul.find("li").length-1;
             tabs.tabs("option", "active", index);
             activeTabId = id;
 
@@ -835,8 +785,8 @@ $(function(){
 
     var createtable = function(startX, endX, startY, endY) {
         var hRange  = [], // creating an array to hold the Horizontal Range
-            vRange = [],  // creating an array to hold the Vertical Range
-            i = 0;
+            vRange = [];  // creating an array to hold the Vertical Range
+        var i = 0;
 
         // Adding the numbers to the arrays
         // Checking if horizontal range is in descending order and vertical range is in ascending order
