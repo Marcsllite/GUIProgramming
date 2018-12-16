@@ -34,6 +34,7 @@ img {
 .main-nav ul {
     border-bottom: 5px solid tomato;
     display: grid;
+    max-width: 2048px;
     grid-gap: 20px;
     padding: 0;
     padding-bottom: 20px;
@@ -73,12 +74,16 @@ h4 {
     background-color: tomato;
 }
 
-a.notYet {
+.notYet, a.notYet {
     display: none;    
 }
 
 /* Multiplication Table Generator Introduction */
 .instr {
+    max-width: 2048px;
+    min-width: 1024px;
+    max-height: 512px;
+    min-height: 256px;
     text-align: center;
     box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
 }
@@ -86,6 +91,10 @@ a.notYet {
 /* Slider */
 #startXSlide, #endXSlide, #startYSlide, #endYSlide {
     margin: auto;
+    max-width: 1024px;
+    min-width: 512px;
+    max-height: 15px;
+    min-height: 10px;
 }
 
 /* Slider track 75% and tomato border*/
@@ -101,14 +110,25 @@ a.notYet {
 }
 
 /* Tabs Editor Menu*/
-#tabManip {
+#tabButtons {
      text-align: center;
+     max-width: 750px;
+     min-width: 256px;
+     width: 75%;
+     margin: auto;
+     box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8);
+}
+
+#tabManip {
+    text-align: center;
     border-radius: 5px;
 }
 
 /*Mult table form*/
 input[type=number]{
     width: 25%;
+    max-width: 350px;
+    min-width: 256px;
     font-size: 29px;
     text-align: center;
     padding: 0;
@@ -121,10 +141,12 @@ input[type=number]{
 
 input[type=submit], input[type=button] {
     width: 12%;
-    min-width: 100px;
+    max-width: 256px;
+    min-width: 125px;
+    text-align: center;
     background-color: tomato;
     color: white;
-    padding: 14px 20px;
+    padding: 14px 0px;
     margin: 8px 10px;
     border: none;
     border-radius: 4px;
@@ -159,8 +181,24 @@ input.invalid {
 }
 
 /* Table */
-table {
+#myTabs {
+    max-width: 1636px;
+    max-height: 1636px;
+    margin: auto;
+    overflow-x: scroll;
+}
+
+#mTabCon {
+    margin: auto;
+}
+
+.table {
     width: 100%;
+    max-width: 1636px;
+    min-width: 512px;
+    max-height: 1636;
+    margin: auto;
+    overflow-x: scroll;
 }
 
 th, td {    /* aligning table cell text*/
@@ -175,10 +213,6 @@ td:first-child, tr:first-of-type {  /* coloring vertical table header*/
 
 /* Getting alternating row color */
 tr:nth-child(even){background-color: #f2f2f2}
-
-.table {
-    overflow-x: auto;
-}
 
 /* Introduction */
 .introduction {

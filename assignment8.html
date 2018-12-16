@@ -13,15 +13,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/assign4style.css"> <!-- Linking Stylesheet -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- using Google JQuery CDN -->
-  <!-- Linking scripts and css for  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<!--  using Google JQuery CDN -->
+  <!-- Linking scripts for widgets -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
-  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js" defer></script>
-  <script src="js/script.js" defer></script>
   <title>GUIAssignment 8: Multiplication Table with tabs and sliders</title> <!-- Adding a title to document tab  -->
 </head>
 <body>
@@ -53,44 +50,51 @@
         </p>
       </div>
     </section>
-    <section class="form">
+    <section class="form" novalidate>
       <form id="myForm" action="#" >
         <span class="noerr" id="errHR">Horizontal Range is greater than 1000</span><br>
         <span class="noerr" id="errVR">Vertical Range is greater than 1000</span><br>
 
         <label for="startX">Start Number (Horizontal):</label>
-        <input type="number" name="startX" id="startX" class="invalid" required>
+        <input type="number" name="startX" id="startX" min="-1000" max="1000" class="invalid" required>
         <span class="errmsg" id="eSX">This field is required!</span><br>
         <div id="startXSlide" class="slider"></div><br>
 
         <label for="endx">End Number (Horizontal):</label>
-        <input type="number" name="endX" id="endX" class="invalid" required>
+        <input type="number" name="endX" id="endX" min="-1000" max="1000" class="invalid" required>
         <span class="errmsg" id="eEX">This field is required!</span><br>
         <div id="endXSlide" class="slider"></div><br>
 
         <label for="startY">Start Number (Vertical):</label>
-        <input type="number" name="startY" id="startY" class="invalid" required>
+        <input type="number" name="startY" id="startY" min="-1000" max="1000" class="invalid" required>
         <span class="errmsg" id="eSY">This field is required!</span><br>
         <div id="startYSlide" class="slider"></div><br>
 
         <label for="endY">End Number (Verical):</label>
-        <input type="number" name="endY" id="endY" class="invalid" required>
+        <input type="number" name="endY" id="endY" min="-1000" max="1000" class="invalid" required>
         <span class="errmsg" id="eEY">This field is required!</span><br>
         <div id="endYSlide" class="slider"></div><br>
         <input type="submit" value="Submit" id="btnSubmit">
       </form>
     </section>
     <section id="tabManip">
-        <input id="removeAll" type="button" value=" Close all tabs">
-        <input id="removeOther" type="button" value="Close other tabs">
-        <input id="removeRight" type="button" value="Close tabs to right">
-        <input id="removeLeft" type="button" value="Close tabs to left">
+    <div id="tabButtons" class="notYet">
+            <h2>Edit tabs</h2>
+            <input id="removeCurrent" type="button" value="Close current tab">
+            <input id="removeAll" type="button" value="Close all tabs">
+            <input id="removeOther" type="button" value="Close other tabs">
+            <input id="removeRight" type="button" value="Close tabs to right">
+            <input id="removeLeft" type="button" value="Close tabs to left">
+        </div>
     </section>
-    <section class="table">
-      <table id="myTable">
-      </table>
-    </section>
+    <div id="mTabCon">
+     <div id="myTabs" class="notYet">
+      <ul id="tabHead"></ul>
+     </div>
+    </div>
   </div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
   <script src="scripts/assign8.js"></script> <!-- linking jquery file -->
 </body>
 </html>
