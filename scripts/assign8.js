@@ -33,7 +33,7 @@ $(function(){
             startX = Number($("#startX").val());
             $("#startX").removeClass("invalid").addClass("valid");
             $("#eSX").css("display", "none");
-            if(startX && endX) {
+            if(startX && endX) {  // checking that range doesn't go over
                 if(Math.abs(startX - endX) > 1000) {
                     $("#startX").removeClass("valid").addClass("invalid");
                     $("#endX").removeClass("valid").addClass("invalid");
@@ -46,7 +46,7 @@ $(function(){
             }
 
         },
-        stop: function(event, ui) {
+        stop: function(event, ui) {  // dynamic update adter the scrolling stops
             console.log("StartX: " + $("#startX").val() + " EndX: " + $("#endX").val());
             // checking if all inputs are valid
             if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
