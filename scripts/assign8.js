@@ -217,6 +217,10 @@ $(function(){
     $("#startX").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
+        if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+        }
         // adding or removing error styling and message
         // based on if field is empty or not
         if(startInput || $(this).val() === "0") {
@@ -244,6 +248,10 @@ $(function(){
         $("#endX").on("input", function(){
             var startInput = $(this).val();
             startInput = Number(startInput);
+            if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+            }
             // adding or removing error styling and message
             // based on if field is empty or not
             if(startInput || $(this).val() === "0") {
@@ -345,6 +353,10 @@ $(function(){
     $("#endX").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
+        if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+        }
         // adding or removing error styling and message
         // based on if field is empty or not
         if(startInput || $(this).val() === "0") {
@@ -371,6 +383,10 @@ $(function(){
         $("#startX").on("input", function(){
             var startInput = $(this).val();
             startInput = Number(startInput);
+            if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+            }
             // adding or removing error styling and message
             // based on if field is empty or not
             if(startInput || $(this).val() === "0") {
@@ -473,6 +489,10 @@ $(function(){
     $("#startY").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
+        if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+        }
         // adding or removing error styling and message
         // based on if field is empty or not
         if(startInput || $(this).val() === "0") {
@@ -499,6 +519,10 @@ $(function(){
         $("#endY").on("input", function(){
             var startInput = $(this).val();
             startInput = Number(startInput);
+            if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+            }
             // adding or removing error styling and message
             // based on if field is empty or not
             if(startInput || $(this).val() === "0") {
@@ -602,6 +626,10 @@ $(function(){
     $("#endY").on("input", function(){
         var startInput = $(this).val();
         startInput = Number(startInput);
+        if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+        }
         // adding or removing error styling and message
         // based on if field is empty or not
         if(startInput || $(this).val() === "0") {
@@ -628,6 +656,10 @@ $(function(){
         $("#startY").on("input", function(){
             var startInput = $(this).val();
             startInput = Number(startInput);
+            if($("#startX").hasClass("valid") && $("#endX").hasClass("valid") &&
+               $("#startY").hasClass("valid") && $("#endY").hasClass("valid")) {
+                dynamicUpdate($("#startX").val(), $("#endX").val(), $("#startY").val(), $("#endY").val());  // updating the active tab
+            }
             // adding or removing error styling and message
             // based on if field is empty or not
             if(startInput || $(this).val() === "0") {
