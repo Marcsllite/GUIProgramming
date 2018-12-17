@@ -9,6 +9,7 @@
    generating a multiplication table from the user input.
    References: https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
    https://formden.com/blog/validate-contact-form-jquery
+   stackOverflow
 */
 "use strict";
 
@@ -698,7 +699,7 @@ $(function(){
         
     });
 
-    tabs.on( 'click', function() {
+    tabs.on( 'click', function() {  // updating current tab index and id 
         activeIndex = tabs.tabs('option', 'active');
         activeTabId = $("#myTabs .ui-tabs-panel:visible").attr("id");
         console.log("Active index: " + activeIndex + " Active id: " + activeTabId);
@@ -741,10 +742,10 @@ $(function(){
         }
     }
 
-    var dynamicUpdate = function(startX, endX, startY, endY) {
-        if( numTabs == 0 ) {  // if there is no active tab index (no tab)
-            createTab(0, Number(startX), Number(endX), Number(startY), Number(endY));  // create a tab
-            id++;
+    var dynamicUpdate = function(startX, endX, startY, endY) {  // dynamically updating table in tabs
+        if( numTabs == 0 ) {  // if there are no tabs
+            createTab(id, Number(startX), Number(endX), Number(startY), Number(endY));  // create a tab
+            id++;  // update unique id for next created tab
         } else {  // else there was an activeIndex
             var li = ul.find('li').eq(activeIndex);
             var tabTitleHolder = li.find('a');
@@ -761,8 +762,8 @@ $(function(){
             var tableId = document.getElementById(activeTabId);
             $(tabContentHolder[0]).empty();  // removing previous table
 
-            if(tableId && tableId.parentNode === tabContentHolder[0]) {
-                tabContentHolder[0].replaceChild(table, tableId);
+            if(tableId && tableId.parentNode === tabContentHolder[0]) {  // if a table already exists in that tab
+                tabContentHolder[0].replaceChild(table, tableId);  // replacing old table with new one
             } else {
                 tabContentHolder[0].appendChild(table);
             }
@@ -771,17 +772,19 @@ $(function(){
         }
     }
     
+    // creates a new tab
     var createTab = function(id, startX, endX, startY, endY) {
 
             var tabTitle = "H: (" + startX + ") - (" + endX +
                            ") V: (" + startY + ") - (" + endY + ")";
-
+            
+            // showing tabButtons and tab
             if($("#tabButtons").hasClass("notYet")){
                 $("#tabButtons").removeClass("notYet");
                 $("#myTabs").removeClass("notYet");
             }
 
-            //Each tab needs a unique id
+            //Each tab gets a unique id
             var tabID = id;
 
             //Add the tab handle
@@ -812,7 +815,7 @@ $(function(){
             tabs.tabs("option", "active", index);
             activeTabId = id;
 
-            console.log("Tab Id: " + id + " Tab Index: " + tabs.tabs('option', 'active') + " (Active Tab)");
+            console.log("NEW TAB: Tab Id: " + id + " Tab Index: " + tabs.tabs('option', 'active') + " (Active Tab)");
     };
 
     var createtable = function(startX, endX, startY, endY) {
