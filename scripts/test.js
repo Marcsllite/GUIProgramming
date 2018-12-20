@@ -58,7 +58,7 @@ $(function(){
           stack: '#cardPile div',
           cursor: 'move',
           revert: function(event, ui) {  // reverts back to stand if not on draggable else snaps to draggable
-                    $(this).data("ui-Draggable").originalPosition = {
+                    $(this).data("uiDraggable").originalPosition = {
                         top : 0,
                         left : 0
                     };
