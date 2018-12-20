@@ -19,6 +19,7 @@ $(function(){
     var tileBackgrounds = [];  // array to hold the image of the current 7 tiles user has
     var tilesValues = [];
     var tilesUsed = [];
+    var slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     var numTiles = 0;
 
     initBoard();
@@ -47,10 +48,11 @@ $(function(){
       }
     }
 
-    //$(initTiles);
+    /**$(initTiles);
     // creates new tiles and adds them to tile holder
     // @param number of tiles to create and add to tile holder
     // @return the number of the first new tile created
+    */
     function newTiles(number) {
         if(number <= 0) {
                 console.log("newTiles: ERROR parameter is less than or euqal to 0");
@@ -145,11 +147,15 @@ $(function(){
 
     // handles the dropping of the tiles on the board
     function handleTileDrop( event, ui ) {
-    var slotNumber = $(this).data( 'num' );
-    var $tileNumber = ui.draggable.data( 'num' );
+        var slotNumber = $(this).data( 'num' );
+        var $tileNumber = ui.draggable.data( 'num' );
+        var tileValue = ui.draggable.data('value');
 
-    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+        slotsUsed[slotNumber] = tileValue;
 
+        console.log("slotsUsed: " + slotsUsed);
+
+        ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
     }
     // keeps track of how many times that particular tile was used
     // helps to know when there is no more of that tile left
@@ -162,4 +168,6 @@ $(function(){
         }
         return count;
     }
+
+
 });
