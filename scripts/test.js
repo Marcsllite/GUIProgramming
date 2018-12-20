@@ -1,3 +1,18 @@
+/*
+   FILE: https://marcsllite.github.io/GUIProgramming/scripts/assign9.js
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on December 18, 2018
+   Description: This jquery corresponds to assignment 9. In this
+   file you'll find code to make drag and drop blocks and create my scrabble
+   game assignment
+   References: W3Schools
+   http://spolearninglab.com/curriculum/SEP/2015/unit_01/drag_and_drop.html
+   https://www.youtube.com/watch?v=DEk2g4Pe_HA
+"use strict";
+*/
+
 $(function(){
     var boardBackground;  // holds the image of the current board
     var boardPoints; // holds the value of each space on the current board
@@ -16,9 +31,18 @@ $(function(){
         var responseObject = JSON.parse(boardData.responseText); // turning .json file into a javascript object
         var i = Math.floor(Math.random() * 8);  // getting board at random index i
         boardPoints = responseObject.rows[i].points;
-        boardBackground = '"url(/' + responseObject.rows[i].image + ')"';
-        console.log(boardBackground);
+        boardBackground = 'url(/' + responseObject.rows[i].image + ')';
         $("#cardContainer").css("background", boardBackground);
+         // making locations droppable
+          var $slotnum;
+          for ( var i=1; i<=15; i++ ) {
+              $slotnum = "#slot-" + i.toString();
+            $($slotnum).data( 'num', i ).droppable( {
+              accept: '#cardPile div',
+              hoverClass: 'hovered',
+              drop: handleTileDrop
+            } );
+          }
     };
     tileData.onload = function() {
         var responseObject2 = JSON.parse(tileData.responseText); // turning .json file into a javascript object
@@ -34,6 +58,23 @@ $(function(){
                 num++;
             }
         }
+        // making tiles draggable
+        var $dragnum;
+          for ( var i=1; i<=7; i++ ) {
+              $dragnum = "#tile-" + i.toString();
+            $($dragnum).data( 'num', i ).css("background", tileBackgrounds[i-1]).data("value", tilesValues[i-1]).draggable( {
+              containment: '#content',
+              stack: '#cardPile div',
+              cursor: 'move',
+              revert: function(event, ui) {  // reverts back to stand if not on draggable else snaps to draggable
+                        $(this).data("uiDraggable").originalPosition = {
+                            top : 0,
+                            left : 0
+                        };
+                        return !event;
+                     }
+            } );
+          }
     };
 
     function timesUsed(name){
@@ -49,38 +90,22 @@ $(function(){
 //    $(gameInit);
 
 //    function gameInit() {
-      // making tiles draggable
-      var $dragnum;
-      for ( var i=1; i<=7; i++ ) {
-          $dragnum = "#tile-" + i.toString();
-        $($dragnum).data( 'num', i ).css("background", tileBackgrounds[i-1]).data("value", tilesValues[i-1]).draggable( {
-          containment: '#content',
-          stack: '#cardPile div',
-          cursor: 'move',
-          revert: function(event, ui) {  // reverts back to stand if not on draggable else snaps to draggable
-                    $(this).data("uiDraggable").originalPosition = {
-                        top : 0,
-                        left : 0
-                    };
-                    return !event;
-                 }
-        } );
-      }
-
-      // making locations droppable
-      var $slotnum;
-
-      for ( var i=1; i<=15; i++ ) {
-          $slotnum = "#slot-" + i.toString();
-        $($slotnum).data( 'num', i ).css("background", boardBackground).droppable( {
-          accept: '#cardPile div',
-          hoverClass: 'hovered',
-          drop: handleTileDrop
-        } );
-      }
-
-//    }
-    function handleTileDrop( event, ui ) {
+//      function tileInit(tilesBackgrounds, tilesValues) {
+//
+//      }
+//      function boardInit() {
+//          // making locations droppable
+//          var $slotnum;
+//          for ( var i=1; i<=15; i++ ) {
+//              $slotnum = "#slot-" + i.toString();
+//            $($slotnum).data( 'num', i ).css("background", boardBackground).droppable( {
+//              accept: '#cardPile div',
+//              hoverClass: 'hovered',
+//              drop: handleTileDrop
+//            } );
+//          }
+//      }
+      function handleTileDrop( event, ui ) {
       var slotNumber = $(this).data( 'num' );
       var tileNumber = ui.draggable.data( 'num' );
 
