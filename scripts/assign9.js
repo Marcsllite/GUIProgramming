@@ -23,8 +23,8 @@ $(function(){
     var boardData = new XMLHttpRequest();
     var tileData = new XMLHttpRequest();
 
-    boardData.open('GET', 'json/board.json', true);  // preparing the request
-    tileData.open('GET', 'json/pieces.json', true);  // preparing the request
+    boardData.open('GET', '/json/board.json', true);  // preparing the request
+    tileData.open('GET', '/json/pieces.json', true);  // preparing the request
     boardData.send(null);  // send the request to server
     tileData.send(null);  // send the request to server
     boardData.onload = function() {
@@ -102,4 +102,7 @@ $(function(){
         ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
     }
 
+//    document.querySelector("#newLetters").addEventListener('click', tileData.onload);
+//    document.querySelector("#newBoard").addEventListener('click', boardData.onload);
+//    document.querySelector("#submit").addEventListener('click', );
 });
