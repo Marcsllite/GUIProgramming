@@ -1,0 +1,188 @@
+/* Assignment 4/6 CSS page
+FILE: https://marcsllite.github.io/GUIProgramming/css/assign4style.css
+Copyright (c) 2018 by Marc Pierre.
+Author: Marc Pierre, mpierre1@cs.uml.edu
+Class: UMass Lowell 91.61 GUI Programming I
+updated by MP on October 10, 2018 8:45pm
+Sources: Traversy Media youtube videos on grids, css-tricks.com, w3schools.com
+Description: This si the style sheet for index.html and assignment6.html. Later
+this will become the style sheet for the entire website.
+*/
+
+html {
+    box-sizing:  border-box; /*padding doesn't effect width of element*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+body {
+    background:  #ccc;
+    margin: 30px 50px; /*30px top and bottom, 50px left and right for entire body of website*/
+    line-height: 1.4;
+}
+
+img {
+    max-width: 100%; /*making sure images stay inside parents*/
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* Navigation */
+.main-nav ul {
+    border-bottom: 5px solid tomato;
+    display: grid;
+    max-width: 2048px;
+    grid-gap: 20px;
+    padding: 0;
+    padding-bottom: 20px;
+    list-style: none; /* gets rid of bullet points */
+    grid-template-columns: repeat(4, 1fr); /* spaces out all of the items in the list */
+}
+
+.main-nav a {
+    background: #ddd;
+    display: block;
+    text-decoration: none;
+    padding: .8rem;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 0 1px 5px rgba(103, 104, 104, 0.8); /* box shadow that is over 1px to the right and blurred 5px with a grey color and 0.8 opacity */
+}
+
+.main-nav a:hover {
+    background: tomato;  /* on mouse hover, background of main-nav links will turn tomato */
+    color: #fff; /* on hover, color of main-nav text will turn white */
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+h4 {
+    background-color: tomato;
+}
+
+.notYet, a.notYet {
+    display: none;
+}
+
+#pileContainer {
+    text-align:center;
+        width:655px;
+        height: 135px;
+    background: url(/images/holder.png);
+    background-size: 100% 100%;
+}
+
+#cardContainer {
+    text-align:center;
+        width:1400px;
+        height: 80pt;
+/*    background: url(/images/row-1.PNG);*/
+    background-size: 100% 100%;
+}
+
+#cardPile {
+/*
+  margin: auto;
+  background: black;
+*/
+    margin: auto;
+       width: 1024px;
+}
+
+#cardSlots {
+/*
+  width: 2048px;
+  margin: auto;
+    background: url(../images/row-1.PNG);
+    background-size: 100% 100%;
+    text-align: center;
+*/
+    margin: auto;
+       width: 2048px;
+}
+
+#cardSlots .dropLoc {
+/*
+    background: red;
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    display: inline-block;
+*/
+    background: red;
+    float: left;
+    margin-left: auto;
+        margin:1.2px;
+        padding-top: 10px;
+        width:84px;
+        height:84px;
+    opacity: .4
+}
+
+#cardPile .dragobj {
+/*
+ display: inline-block;
+  background: #666;
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+  text-shadow: 0 2px 2px #000;
+*/
+    background: green;
+    float: left;
+        margin:1.4px;
+    margin-top: 5px;
+        padding-top: 10px;
+        width:87px;
+        height:87px;
+}
+
+/*
+#cardSlots, #cardPile {
+  width: 910px;
+  height: 300px;
+  padding: 12px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+*/
+
+/* Individual cards and slots */
+
+/*
+#cardSlots div, #cardPile div {
+  float: left;
+  width: 170px;
+  height: 80px;
+  padding: 1px;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 10px 5px 0 0px;
+  background: #fff;
+}
+*/
+
+#cardSlots div.hovered {
+  background: #aaa;
+}
+
+#cardSlots div {
+  border-style: dashed;
+}
