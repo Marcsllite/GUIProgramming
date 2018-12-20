@@ -118,9 +118,9 @@ input[type=button] {
     background-size:  1400px 80pt;
 }
 
-#cardTile {
+#cardPile {
     margin: auto;
-    width: 1024px;
+    width: 700px;
 }
 
 #cardSlots {
@@ -137,7 +137,7 @@ input[type=button] {
     height:84px;
 }
 
-#cardTile .dragobj {
+#cardPile .dragobj {
     background-size: 100% 100%;
     float: left;
     margin-top: 8px;

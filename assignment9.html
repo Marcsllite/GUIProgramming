@@ -9,15 +9,13 @@
    adds live error detecting using jquery.
  -->
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
     <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/assign9style.css"> <!-- Linking Stylesheet -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <!--  using Google JQuery CDN -->
       <title>Mini Scrabble Game</title> <!-- Adding a title to document tab  -->
+      <link rel="stylesheet" href="css/assign9style.css" type="text/css"> <!-- Linking Stylesheet -->
+      <!--  using Google JQuery CDN -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     </head>
     <body>
       <div class = "wrapper">
@@ -44,15 +42,7 @@
           </div>
         </section>
         <div id="tileContainer">
-          <div id="cardTile">
-              <div id="tile-1" class="dragobj"></div>
-              <div id="tile-2" class="dragobj"></div>
-              <div id="tile-3" class="dragobj"></div>
-              <div id="tile-4" class="dragobj"></div>
-              <div id="tile-5" class="dragobj"></div>
-              <div id="tile-6" class="dragobj"></div>
-              <div id="tile-7" class="dragobj"></div>
-          </div>
+          <div id="cardPile"> </div>
       </div>
       <br>
       <div id="cardContainer">

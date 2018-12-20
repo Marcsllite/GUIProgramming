@@ -1,3 +1,14 @@
+<!--
+   FILE: https://marcsllite.github.io/GUIProgramming/assignment7.html
+   Copyright (c) 2018 by Marc Pierre. All rights reserved.
+   Author: Marc Pierre, mpierre1@cs.uml.edu,
+   Class: UMass Lowell 91.61 GUI Programming I,
+   updated by MP on November 14, 2018 at 8:24 AM
+   Description: This webpages is the 7th assignment from GUI I.
+   This is the same assignment as assignment 6 except it
+   adds live error detecting using jquery.
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,37 +19,52 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-    <div id="wrapper">
+    <div class="wrapper">
+     <div class="main-nav">
+          <ul>
+            <li> <a href="examples.html">examples</a> </li>
+            <li> <a href="assignment2.html">Assignment 2</a> </li>
+            <li> <a href="assignment3.html">Assignment 3</a> </li>
+            <li> <a href="index.html" >Assignment 4</a> </li>
+            <li> <a href="assignment6.html">Assignment 6</a> </li>
+            <li> <a href="assignment7.html">Assignment 7</a> </li>
+            <li> <a href="assignment8.html">Assignment 8</a> </li>
+            <li> <a href="#" class="currentPage">Assignment 9</a> </li>
+          </ul>
+        </div>
+     <section class="Description">
+          <div class="instr">
+            <h1>Welcome to my mini Scrabble Game</h1>
+            <p><strong>Directons:</strong> You start out with 7 tiles and must drag and drop letters from the tiles holder onto the line from the board then click calculate to get your score. After clicking calculate the program will clear the board If you want to use a different board click "New Line from Board" button. If you want a different set of letters click the "New set of letters" button.</p>
+            <input id="newLetters" type="button" value="New set of letters">
+            <input id="newBoard" type="button" value="New line from Board">
+            <h2>Score: </h2>
+            <h1 id="score"></h1>
+          </div>
+    </section>
       <div id="pileContainer">
           <div id="cardPile">
-          <div id="tile-1" class="dragobj"></div>
-          <div id="tile-2" class="dragobj"></div>
-          <div id="tile-3" class="dragobj"></div>
-          <div id="tile-4" class="dragobj"></div>
-          <div id="tile-5" class="dragobj"></div>
-          <div id="tile-6" class="dragobj"></div>
-          <div id="tile-7" class="dragobj"></div>
-      </div>
+          </div>
       </div>
       <br>
       <div id="cardContainer">
           <div id="cardSlots">
-          <div id="slot-1" class="dropLoc" ></div>
-          <div id="slot-2" class="dropLoc" ></div>
-          <div id="slot-3" class="dropLoc" ></div>
-          <div id="slot-4" class="dropLoc" ></div>
-          <div id="slot-5" class="dropLoc" ></div>
-          <div id="slot-6" class="dropLoc" ></div>
-          <div id="slot-7" class="dropLoc" ></div>
-          <div id="slot-8" class="dropLoc" ></div>
-          <div id="slot-9" class="dropLoc" ></div>
-          <div id="slot-10" class="dropLoc" ></div>
-          <div id="slot-11" class="dropLoc" ></div>
-          <div id="slot-12" class="dropLoc" ></div>
-          <div id="slot-13" class="dropLoc" ></div>
-          <div id="slot-14" class="dropLoc" ></div>
-          <div id="slot-15" class="dropLoc" ></div>
-      </div>
+              <div id="slot-1" class="dropLoc" ></div>
+              <div id="slot-2" class="dropLoc" ></div>
+              <div id="slot-3" class="dropLoc" ></div>
+              <div id="slot-4" class="dropLoc" ></div>
+              <div id="slot-5" class="dropLoc" ></div>
+              <div id="slot-6" class="dropLoc" ></div>
+              <div id="slot-7" class="dropLoc" ></div>
+              <div id="slot-8" class="dropLoc" ></div>
+              <div id="slot-9" class="dropLoc" ></div>
+              <div id="slot-10" class="dropLoc" ></div>
+              <div id="slot-11" class="dropLoc" ></div>
+              <div id="slot-12" class="dropLoc" ></div>
+              <div id="slot-13" class="dropLoc" ></div>
+              <div id="slot-14" class="dropLoc" ></div>
+              <div id="slot-15" class="dropLoc" ></div>
+          </div>
       </div>
     </div>
   <script src="scripts/test.js"></script> <!-- linking jquery file -->

@@ -1,129 +1,58 @@
 #pileContainer {
     text-align:center;
-        width:655px;
-        height: 135px;
+    width:655px;
+    height: 135px;
     background: url(/images/holder.png);
     background-size: 100% 100%;
 }
 
 #cardContainer {
+    margin: auto;
     text-align:center;
-        width:1400px;
-        height: 80pt;
-/*    background: url(/images/row-1.PNG);*/
+    width: 1400px;
+    height: 80pt;
     background-size: 100% 100%;
 }
 
 #cardPile {
-/*
-  margin: auto;
-  background: black;
-*/
     margin: auto;
-       width: 1024px;
+    width: 700px;
 }
 
 #cardSlots {
-/*
-  width: 2048px;
-  margin: auto;
-    background: url(../images/row-1.PNG);
-    background-size: 100% 100%;
-    text-align: center;
-*/
     margin: auto;
-       width: 2048px;
+    width: 2048px;
 }
 
 #cardSlots .dropLoc {
-/*
-    background: red;
-    width: 80px;
-    height: 80px;
-    max-width: 80px;
-    max-height: 80px;
-    display: inline-block;
-*/
-    background: red;
     float: left;
     margin-left: auto;
-        margin:1.2px;
-        padding-top: 10px;
-        width:84px;
-        height:84px;
-    opacity: .4
+    margin:1.2px;
+    padding-top: 10px;
+    width:84px;
+    height:84px;
 }
 
 #cardPile .dragobj {
-/*
- display: inline-block;
-  background: #666;
-    width: 80px;
-    height: 80px;
-    max-width: 80px;
-    max-height: 80px;
-  text-shadow: 0 2px 2px #000;
-*/
-    background: green;
+    background-size: 100% 100%;
     float: left;
-        margin:1.4px;
-    margin-top: 5px;
-        padding-top: 10px;
-        width:87px;
-        height:87px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+    margin-left: 2.21px;
+    margin-right: 1.0px;
+    padding-top: 11px;
+    padding-right: .5px;
+    padding-bottom: 1px;
+    width:87px;
+    height:87px;
 }
-
-/*
-#cardSlots, #cardPile {
-  width: 910px;
-  height: 300px;
-  padding: 12px;
-  border: 2px solid #333;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-}
-*/
-
-/* Individual cards and slots */
-
-/*
-#cardSlots div, #cardPile div {
-  float: left;
-  width: 170px;
-  height: 80px;
-  padding: 1px;
-  padding-bottom: 0;
-  border: 2px solid #333;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  margin: 10px 5px 0 0px;
-  background: #fff;
-}
-*/
 
 #cardSlots div.hovered {
-  background: #aaa;
+  background: grey;
 }
 
 #cardSlots div {
-  border-style: dashed;
+  opacity: 0;
+  border-style:dashed;
+  border-radius: 360px;
 }
-/* Individually coloured cards */
-
-#card1.correct { background: red; }
-#card2.correct { background: brown; }
-#card3.correct { background: orange; }
-#card4.correct { background: yellow; }
-#card5.correct { background: green; }
-#card6.correct { background: cyan; }
-#card7.correct { background: blue; }
-#card8.correct { background: indigo; }
-#card9.correct { background: purple; }
-#card10.correct { background: violet; }
-#card11.correct { background: teal; }
-#card12.correct { background: chartreuse; }
