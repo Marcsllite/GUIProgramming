@@ -184,7 +184,7 @@ $(function(){
     }
 
     function calculate(){
-        if(boardEmpty){
+        if(boardEmpty()){
             alert("There are no pieces on the board to make claculations.");
             console.log("boardEmpty?: " + boardEmpty);
         } else {
@@ -192,13 +192,14 @@ $(function(){
             var triple = false;
             var double = 0;
             for(var i = 0; i < slotsUsed.length; i++){
-                if(slotsUsed[i] == 30){
+                if(boardPoints[i] == 30 && slotsUsed[i] != 0){
                     triple = true;
                 }
-                else if(slotsUsed[i] == 20) {
+                else if(boardPoints[i] == 20 && slotsUsed[i] != 0) {
                     double++;
                 } else {
                     score += slotsUsed[i] * boardPoints[i];
+                    console.log("slotsUsed[" + i + "]: " + slotsUsed[i] + "boardPoints[" + i + "]: " + boardPoints[i]);
                 }
             }
             if(triple){
