@@ -128,10 +128,6 @@ $(function(){
                 $($dragnum).draggable( {
                     containment: '#content',
                     cursor: 'move',
-                    drag: function(){
-                        slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                        console.log("slotsUsed: " + slotsUsed);
-                    },
                     stop: function(){  // figures out if the tile is on the rack or board
                             if($(this).css('left') === '0px' && $(this).css('top') === '0px'){
                                 $(this).data("parent", "tileContainer");
@@ -190,6 +186,33 @@ $(function(){
     function calculate(){
         if(boardEmpty){
             alert("There are no pieces on the board to make claculations.");
+            console.log("boardEmpty?: " + boardEmpty);
+        } else {
+            var score = 0;
+            var triple = false;
+            var double = 0;
+            for(var i = 0; i < slotsUsed.length; i++){
+                if(slotsUsed[i] == 30){
+                    triple = true;
+                }
+                else if(slotsUsed[i] == 20) {
+                    double++;
+                } else {
+                    score += slotsUsed[i] * boardPoints[i];
+                }
+            }
+            if(triple){
+                score = 3 * score;
+                 $('#score').text(score);
+            }else if (double == 1){
+                score = 2 * score;
+                 $('#score').text(score);
+            }else if (double == 2){
+                score = 4 * score;
+                 $('#score').text(score);
+            }else {
+                $('#score').text(score);
+            }
         }
     }
 

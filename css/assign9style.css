@@ -111,11 +111,9 @@ input[type=button] {
 }
 
 #cardContainer {
-    margin: auto;
-    text-align: center;
-    width:1400px;
+    width:1407px;
     height: 80pt;
-    background-size:  1400px 80pt;
+    background-size:  100% 100%;
 }
 
 #cardPile {
@@ -130,9 +128,11 @@ input[type=button] {
 
 #cardSlots .dropLoc {
     float: left;
-    margin-left: auto;
-    margin:1.2px;
-    padding-top: 10px;
+    margin-left: 4px;
+    padding-top: 11px;
+    padding-left:2px;
+    padding-right: 1px;
+    padding-bottom: 1px;
     width:84px;
     height:84px;
 }
