@@ -106,7 +106,7 @@ input[type=button] {
     width: 660px;
     height: 135px;
     margin: auto;
-    background: url(/images/holder.png);
+    background: url(../images/holder.png);
     background-size: 100% 100%;
 }
 

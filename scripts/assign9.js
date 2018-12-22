@@ -26,7 +26,7 @@ $(function(){
     initTiles();
     // gets a new random scrabble board from json
     function newBoard() {
-        $.getJSON("/json/board.json", function(response){
+        $.getJSON("json/board.json", function(response){
             var i = Math.floor(Math.random() * 8);  // getting board at random index i
             boardPoints = response.rows[i].points;
             boardBackground = response.rows[i].image;
@@ -59,7 +59,7 @@ $(function(){
                 return -1;
         }
         else {
-            $.getJSON("/json/pieces.json", function(response){
+            $.getJSON("json/pieces.json", function(response){
                 var $tileNum, rand, i;
                 var startloop = tilesUsed.length + 1;
                 var endloop = tilesUsed.length + Number(number);
@@ -169,5 +169,10 @@ $(function(){
         return count;
     }
 
-
+    // making sure onclick of the buttons call the proper function
+    document.querySelector("#submit").addEventListener('click', newBoard());
+    document.querySelector("#submit").addEventListener('click', function(){
+        $('#cardPile').empty();
+        initTiles();
+    });
 });
