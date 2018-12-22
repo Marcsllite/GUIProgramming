@@ -170,8 +170,8 @@ $(function(){
     }
 
     // making sure onclick of the buttons call the proper function
-    document.querySelector("#submit").addEventListener('click', newBoard());
-    document.querySelector("#submit").addEventListener('click', function(){
+    document.querySelector("#newBoard").addEventListener('click', newBoard());
+    document.querySelector("#newLetters").addEventListener('click', function(){
         $('#cardPile').empty();
         initTiles();
     });
