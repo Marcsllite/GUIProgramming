@@ -151,7 +151,7 @@ $(function(){
         var $tileNumber = ui.draggable.data( 'num' );
         var tileValue = ui.draggable.data('value');
 
-        slotsUsed[slotNumber] = tileValue;
+        slotsUsed[slotNumber-1] = tileValue;
 
         console.log("slotsUsed: " + slotsUsed);
 
