@@ -30,6 +30,8 @@ $(function(){
             var i = Math.floor(Math.random() * 8);  // getting board at random index i
             boardPoints = response.rows[i].points;
             boardBackground = response.rows[i].image;
+            slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            console.log("slotsUsed: " + slotsUsed);
             $("#cardContainer").css({"background": boardBackground, "background-size": "100% 100%", "background-repeat": "no-repeat"});
         });
     }
@@ -113,6 +115,8 @@ $(function(){
             alert("An error occurred while trying to init the new tiles");
         }
         else {
+            slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            console.log("slotsUsed: " + slotsUsed);
             // making new tiles draggable
             for(var i = tilesUsed.length; i > tilesUsed.length - 7; i--) {
                 $dragnum = "#tile-" + i.toString();
@@ -123,11 +127,16 @@ $(function(){
                 $($dragnum).data( 'num', i ).data("value", tilesValues[i])
                 $($dragnum).draggable( {
                     containment: '#content',
-                    stack: '#cardPile div',
                     cursor: 'move',
+                    drag: function(){
+                        slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        console.log("slotsUsed: " + slotsUsed);
+                    },
                     stop: function(){  // figures out if the tile is on the rack or board
                             if($(this).css('left') === '0px' && $(this).css('top') === '0px'){
                                 $(this).data("parent", "tileContainer");
+                                slotsUsed = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                                console.log("slotsUsed: " + slotsUsed);
                             } else{
                                 $(this).data("parent", "cardContainer");
                             }
@@ -169,10 +178,26 @@ $(function(){
         return count;
     }
 
+    function boardEmpty(){
+        for(var i = 0; i < slotsUsed.length; i++){
+            if(slotsUsed[i] != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function calculate(){
+        if(boardEmpty){
+            alert("There are no pieces on the board to make claculations.");
+        }
+    }
+
     // making sure onclick of the buttons call the proper function
-    document.querySelector("#newBoard").addEventListener('click', newBoard());
+    document.querySelector("#newBoard").addEventListener('click', newBoard);
     document.querySelector("#newLetters").addEventListener('click', function(){
         $('#cardPile').empty();
         initTiles();
     });
+    document.querySelector("#submit").addEventListener('click', calculate);
 });
